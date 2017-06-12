@@ -1,0 +1,64 @@
+<!-- view -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bootcamp Example</title>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <!-- Stylesheets -->
+	<!-- <link href="../css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link href="css/create-exercise.css" rel="stylesheet"> -->
+	<!-- <link href="css/trainer-plus.css" rel="stylesheet"> -->
+	<link href="css/exampleStyle.css" rel="stylesheet">
+    <!-- Javascripts -->
+	<script src="js/UserController.js"></script>
+	<script src="js/UserObject.js"></script>
+    <script src="js/FetchUser.js"></script>
+	<script src="js/Util.js"></script>
+
+    <script>
+		const ul = document.getElementById('exampleList');
+
+		function createNode(element) {
+			return document.createElement(element);
+		}
+
+		function append(parent, el) {
+			return parent.appendChild(el);
+		}
+
+		function success(userList) {
+			console.log('View: function success');
+
+			 for (i = 0; i < userList.length; i++) {
+				 displayImg(userList[i].getImage());
+				 displayName(userList[i].getName());
+			 }
+		}
+
+		function fail(errorMessage) {
+            console.log('View: function fail');
+			alert(errorMessage);
+		}
+
+		function onButtonClick() {
+			loadMoreExcercises();
+		}
+
+        function loadUsers() {
+            fetchUsers(success, fail);
+        }
+    </script>
+</head>
+
+<body>
+	<div id="baseDiv">
+        <button type="button" onclick="loadUsers();">Load Users</button>
+        <ul id="exampleList">
+        </ul>
+	</div>
+</body>
+
+</html>
