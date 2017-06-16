@@ -28,5 +28,6 @@ function fetchUsers(fetchUserSucessful, fetchUserFailed) {
 	this.fetchUserSucessful = fetchUserSucessful;
 	this.fetchUserFailed = fetchUserFailed;
 
-	getUsers(fetchSuccessCallback, fetchFailCallback, 10);
+	// getUsers(fetchSuccessCallback, fetchFailCallback, 10);
+	getUsersAjax(fetchSuccessCallback, fetchFailCallback, 10);
 }
