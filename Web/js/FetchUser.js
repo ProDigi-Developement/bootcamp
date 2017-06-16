@@ -1,6 +1,11 @@
 /* fetch controller */
 const baseUrl = 'https://randomuser.me/api/?results=';
 
+var script = document.createElement('script');
+script.src = 'http://code.jquery.com/jquery-1.11.0.min.js';
+script.type = 'text/javascript';
+document.getElementsByTagName('head')[0].appendChild(script);
+
 function getUsers(success, fail, numberOfUsers) {
 	console.log('getUser called.');
 
@@ -44,4 +49,38 @@ function getUsers(success, fail, numberOfUsers) {
 	  .catch(function(error) {
 		fail("Fetch not worked. More Info: " + error);
 	  });
+}
+
+function getUsersAjax(success, fail, numberOfUsers) {
+	var url = baseUrl + numberOfUsers;
+	$.ajax({
+		type: "GET",
+ 		url: url,
+		dataType: "json"
+    })
+	.success(function(data) {
+		// var json = JSON.parse(data);
+	    console.log( "API AJAX requet success" );
+		console.log(data);
+
+		var userArray = new Array();
+
+		var user = null;
+		for (index = 0; data.results.length > index; index++) {
+			// console.log(item);
+			// console.log(data.results[item].name.first);
+			// console.log(data.results[item].picture.thumbnail);
+			user = new User(data.results[index].name.first, data.results[index].picture.thumbnail);
+			userArray[index] = user;
+		}
+
+		success(userArray);
+	  })
+  	.fail(function(error) {
+    	console.log( "API: error" );
+		fail(error);
+  	})
+	.always(function() {
+	    console.log( "API: request complete" );
+	});
 }
