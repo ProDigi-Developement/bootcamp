@@ -6,6 +6,12 @@
 //  Copyright © 2017 Caio Dias. All rights reserved.
 //
 
+enum AnimalFoods {
+    case meat
+    case plants
+    case eggs
+}
+
 protocol Animal {
     func getSound() -> String
 }
