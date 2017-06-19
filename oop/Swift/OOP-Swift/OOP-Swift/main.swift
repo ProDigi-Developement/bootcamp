@@ -13,19 +13,18 @@ print("OOP Swift how NOT to do examples.\n")
 
 // Dog example
 let lessie = Animal(withType: .dog)
-print("Dog Lessie Sound: \(lessie.getSound())\nFood: \(lessie.baseFood)\nMax Age:\(lessie.maxAge)")
+print(lessie.toString())
 
 // Lion example
 let scar = Animal(withType: .lion)
-print("Lion Scar Sound: \(scar.getSound())\nFood: \(scar.baseFood)\nMax Age:\(lessie.maxAge)")
+print(scar.toString())
 
 // Sheep example
 let dolly = Animal(withType: .sheep)
-print("Sheep Dolly Sound: \(dolly.getSound())\nFood: \(dolly.baseFood)\nMax Age:\(lessie.maxAge)")
+print(dolly.toString())
 
 // Cat example
 let garfield = Animal(withType: .cat)
-print("Cat Garfield Sound: \(garfield.getSound())\nFood: \(garfield.baseFood)\nMax Age:\(lessie.maxAge)")
+print(garfield.toString())
 
-print("\n")
 print("Using a single class and putting everything on it is a mess.\n")
