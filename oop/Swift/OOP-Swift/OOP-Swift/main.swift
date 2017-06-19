@@ -14,19 +14,19 @@ print("⚠️ Swift does not have abstract option yet. However, is possible to m
 
 // Dog example
 let lessie = Dog()
-print("Dog Lessie Sound: \(lessie.getSound())\nFood: \(lessie.baseFood)")
+print("Dog Lessie Sound: \(lessie.getSound())\nFood: \(lessie.baseFood)\nMax Age: \(lessie.maxAge)")
 
 // Lion example
 let scar = Lion()
-print("Lion Scar Sound: \(scar.getSound())\nFood: \(scar.baseFood)")
+print("Lion Scar Sound: \(scar.getSound())\nFood: \(scar.baseFood)\nMax Age: \(scar.maxAge)")
 
 // Sheep example
 let dolly = Sheep()
-print("Sheep Dolly Sound: \(dolly.getSound())\nFood: \(dolly.baseFood)")
+print("Sheep Dolly Sound: \(dolly.getSound())\nFood: \(dolly.baseFood)\nMax Age: \(dolly.maxAge)")
 
 // Cat example
 let garfield = Cat()
-print("Cat Garfield Sound: \(garfield.getSound())\nFood: \(garfield.baseFood)")
+print("Cat Garfield Sound: \(garfield.getSound())\nFood: \(garfield.baseFood)\nMax Age: \(garfield.maxAge)")
 
 print("\n")
 print("Using protocols, inheritance and objects we are able to plot different scenarios with a very few lines of code.\n")
