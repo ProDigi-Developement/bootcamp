@@ -18,4 +18,5 @@ protocol Animal {
     var maxAge: Int { get }
 
     func getSound() -> String
+    func toString() -> String
 }

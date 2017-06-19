@@ -18,4 +18,8 @@ class Dog: Animal {
     func getSound() -> String {
         return "Woof"
     }
+    
+    func toString() -> String {
+        return "Dog Sound: \(self.getSound())\nFood: \(self.baseFood)\nMax Age: \(self.maxAge)\n"
+    }
 }
