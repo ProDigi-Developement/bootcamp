@@ -7,6 +7,12 @@
 //
 
 class Cat: Animal {
+    internal var baseFood: AnimalFoods
+    
+    init() {
+        self.baseFood = .milk
+    }
+    
     func getSound() -> String {
         return "Meow"
     }
