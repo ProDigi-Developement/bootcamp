@@ -7,25 +7,25 @@
 //
 
 class Cat: Animal {
-    var owner: String
+    private var owner: String
 
-    var baseFood: AnimalFoods {
+    public var baseFood: AnimalFoods {
         return .milk
     }
 
-    var maxAge: Int {
+    public var maxAge: Int {
         return 10
     }
     
-    init(withOwner name: String) {
+    public init(withOwner name: String) {
         self.owner = name
     }
     
-    func getSound() -> String {
+    public func getSound() -> String {
         return "Meow"
     }
     
-    func toString() -> String {
+    public func toString() -> String {
         return "Cat Sound: \(self.getSound())\nFood: \(self.baseFood)\nMax Age: \(self.maxAge)\nOwner: \(self.owner)\n"
     }
 }

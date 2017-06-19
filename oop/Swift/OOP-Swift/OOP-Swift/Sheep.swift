@@ -6,24 +6,24 @@
 //  Copyright © 2017 Caio Dias. All rights reserved.
 //
 
-class Sheep: Animal {
-    var baseFood: AnimalFoods {
+public class Sheep: Animal {
+    public var baseFood: AnimalFoods {
         return .plants
     }
 
-    var maxAge: Int {
+    public var maxAge: Int {
         return 15
     }
     
-    init() {
+    public init() {
         // Nothing to see here. Keep moving 🚶🏻
     }
 
-    func getSound() -> String {
+    public func getSound() -> String {
         return "Baaa"
     }
     
-    func toString() -> String {
+    public func toString() -> String {
         return "Sheep Sound: \(self.getSound())\nFood: \(self.baseFood)\nMax Age: \(self.maxAge)\n"
     }
 }

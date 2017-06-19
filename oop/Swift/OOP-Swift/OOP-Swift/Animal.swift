@@ -6,14 +6,14 @@
 //  Copyright © 2017 Caio Dias. All rights reserved.
 //
 
-enum AnimalFoods {
+public enum AnimalFoods {
     case meat
     case plants
     case eggs
     case milk
 }
 
-protocol Animal {
+public protocol Animal {
     var baseFood: AnimalFoods { get }
     var maxAge: Int { get }
 

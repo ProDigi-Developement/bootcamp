@@ -6,26 +6,26 @@
 //  Copyright © 2017 Caio Dias. All rights reserved.
 //
 
-class Dog: Animal {
-    var owner: String
+public class Dog: Animal {
+    private var owner: String
     
-    var baseFood: AnimalFoods {
+    public var baseFood: AnimalFoods {
         return .milk
     }
     
-    var maxAge: Int {
+    public var maxAge: Int {
         return 12
     }
     
-    init(withOwner name: String) {
+    public init(withOwner name: String) {
         self.owner = name
     }
 
-    func getSound() -> String {
+    public func getSound() -> String {
         return "Woof"
     }
     
-    func toString() -> String {
+    public func toString() -> String {
         return "Dog Sound: \(self.getSound())\nFood: \(self.baseFood)\nMax Age: \(self.maxAge)\nOwner: \(self.owner)\n"
     }
 }
