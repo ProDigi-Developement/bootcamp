@@ -13,15 +13,15 @@ print("⚠️ Swift does not have abstract option yet. However, is possible to m
 
 
 // Dog example
-let lessie = Dog()
+let lessie = Animal(withType: .dog)
 print("Dog Lessie Sound: \(lessie.getSound())")
 
 // Lion example
-let scar = Lion()
+let scar = Animal(withType: .lion)
 print("Lion Scar Sound: \(scar.getSound())")
 
 // Sheep example
-let dolly = Sheep()
+let dolly = Animal(withType: .sheep)
 print("Sheep Dolly Sound: \(dolly.getSound())")
 
 print("\n")
