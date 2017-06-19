@@ -10,6 +10,7 @@ enum AnimalFoods {
     case meat
     case plants
     case eggs
+    case milk
 }
 
 protocol Animal {
