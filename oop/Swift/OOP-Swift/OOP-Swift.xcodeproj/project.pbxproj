@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		95A1BB341EF8338F0099AFBC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB331EF8338F0099AFBC /* main.swift */; };
+		95A1BB3E1EF834070099AFBC /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB3A1EF834070099AFBC /* Animal.swift */; };
+		95A1BB3F1EF834070099AFBC /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB3B1EF834070099AFBC /* Dog.swift */; };
+		95A1BB401EF834070099AFBC /* Lion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB3C1EF834070099AFBC /* Lion.swift */; };
+		95A1BB411EF834070099AFBC /* Sheep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB3D1EF834070099AFBC /* Sheep.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,10 @@
 /* Begin PBXFileReference section */
 		95A1BB301EF8338F0099AFBC /* OOP-Swift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "OOP-Swift"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95A1BB331EF8338F0099AFBC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		95A1BB3A1EF834070099AFBC /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		95A1BB3B1EF834070099AFBC /* Dog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		95A1BB3C1EF834070099AFBC /* Lion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lion.swift; sourceTree = "<group>"; };
+		95A1BB3D1EF834070099AFBC /* Sheep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sheep.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +65,21 @@
 		95A1BB321EF8338F0099AFBC /* OOP-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				95A1BB421EF8340C0099AFBC /* Model */,
 				95A1BB331EF8338F0099AFBC /* main.swift */,
 			);
 			path = "OOP-Swift";
+			sourceTree = "<group>";
+		};
+		95A1BB421EF8340C0099AFBC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95A1BB3A1EF834070099AFBC /* Animal.swift */,
+				95A1BB3B1EF834070099AFBC /* Dog.swift */,
+				95A1BB3C1EF834070099AFBC /* Lion.swift */,
+				95A1BB3D1EF834070099AFBC /* Sheep.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +142,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				95A1BB341EF8338F0099AFBC /* main.swift in Sources */,
+				95A1BB411EF834070099AFBC /* Sheep.swift in Sources */,
+				95A1BB3E1EF834070099AFBC /* Animal.swift in Sources */,
+				95A1BB3F1EF834070099AFBC /* Dog.swift in Sources */,
+				95A1BB401EF834070099AFBC /* Lion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
