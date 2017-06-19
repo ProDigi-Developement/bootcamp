@@ -6,7 +6,7 @@
 //  Copyright © 2017 Caio Dias. All rights reserved.
 //
 
-class Cat: Animal {
+public class Cat: Animal {
     private var owner: String
 
     public var baseFood: AnimalFoods {
