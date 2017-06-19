@@ -15,6 +15,7 @@ enum AnimalFoods {
 
 protocol Animal {
     var baseFood: AnimalFoods { get }
+    var maxAge: Int { get }
 
     func getSound() -> String
 }

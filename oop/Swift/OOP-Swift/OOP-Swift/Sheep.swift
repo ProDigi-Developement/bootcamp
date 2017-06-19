@@ -8,9 +8,11 @@
 
 class Sheep: Animal {
     var baseFood: AnimalFoods
+    var maxAge: Int
     
     init() {
         self.baseFood = .plants
+        self.maxAge = 15
     }
 
     func getSound() -> String {

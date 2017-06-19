@@ -7,10 +7,12 @@
 //
 
 class Cat: Animal {
-    internal var baseFood: AnimalFoods
+    var baseFood: AnimalFoods
+    var maxAge: Int
     
     init() {
         self.baseFood = .milk
+        self.maxAge = 10
     }
     
     func getSound() -> String {
