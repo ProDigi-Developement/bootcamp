@@ -9,10 +9,12 @@
 class Dog: Animal {
     var baseFood: AnimalFoods
     var maxAge: Int
+    var owner: String
     
-    init() {
+    init(withOwner name: String) {
         self.baseFood = .milk
         self.maxAge = 12
+        self.owner = name
     }
 
     func getSound() -> String {
@@ -20,6 +22,6 @@ class Dog: Animal {
     }
     
     func toString() -> String {
-        return "Dog Sound: \(self.getSound())\nFood: \(self.baseFood)\nMax Age: \(self.maxAge)\n"
+        return "Dog Sound: \(self.getSound())\nFood: \(self.baseFood)\nMax Age: \(self.maxAge)\nOwner: \(self.owner)\n"
     }
 }

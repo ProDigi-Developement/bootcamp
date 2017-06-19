@@ -13,7 +13,7 @@ print("⚠️ Swift does not have abstract option yet. However, is possible to m
 
 
 // Dog example
-let lessie = Dog()
+let lessie = Dog(withOwner: "John Doe")
 print(lessie.toString())
 
 // Lion example
@@ -25,7 +25,7 @@ let dolly = Sheep()
 print(dolly.toString())
 
 // Cat example
-let garfield = Cat()
+let garfield = Cat(withOwner: "Jane Doe")
 print(garfield.toString())
 
 print("Using protocols, inheritance and objects we are able to plot different scenarios with a very few lines of code.\n")
