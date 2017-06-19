@@ -7,13 +7,17 @@
 //
 
 class Dog: Animal {
-    var baseFood: AnimalFoods
-    var maxAge: Int
     var owner: String
     
+    var baseFood: AnimalFoods {
+        return .milk
+    }
+    
+    var maxAge: Int {
+        return 12
+    }
+    
     init(withOwner name: String) {
-        self.baseFood = .milk
-        self.maxAge = 12
         self.owner = name
     }
 

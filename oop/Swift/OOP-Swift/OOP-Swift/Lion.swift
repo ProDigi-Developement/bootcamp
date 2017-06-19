@@ -7,12 +7,16 @@
 //
 
 public class Lion: Animal {
-    var baseFood: AnimalFoods
-    var maxAge: Int
+    var baseFood: AnimalFoods {
+        return .meat
+    }
+
+    var maxAge: Int {
+        return 25
+    }
     
     init() {
-        self.baseFood = .meat
-        self.maxAge = 25
+        // Nothing to see here. Keep moving 🚶🏻
     }
    
     func getSound() -> String {
