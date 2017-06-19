@@ -24,6 +24,7 @@ class Animal {
     
     var type: AnimalType
     var baseFood: AnimalFoods
+    var maxAge: Int
     
     init(withType type: AnimalType) {
         self.type = type
@@ -31,15 +32,19 @@ class Animal {
         switch self.type {
         case .dog:
             self.baseFood = .milk
+            self.maxAge = 12
             break
         case .cat:
             self.baseFood = .milk
+            self.maxAge = 10
             break
         case .lion:
             self.baseFood = .meat
+            self.maxAge = 25
             break
         case .sheep:
             self.baseFood = .plants
+            self.maxAge = 15
             break
         }
     }
