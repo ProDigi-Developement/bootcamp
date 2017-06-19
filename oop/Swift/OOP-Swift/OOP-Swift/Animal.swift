@@ -14,10 +14,34 @@ class Animal {
         case sheep
     }
     
+    enum AnimalFoods {
+        case none
+        case meat
+        case plants
+        case eggs
+        case milk
+    }
+    
     var type: AnimalType
+    var baseFood: AnimalFoods
     
     init(withType type: AnimalType) {
         self.type = type
+        
+        switch self.type {
+        case .dog:
+            self.baseFood = .milk
+            break
+        case .cat:
+            self.baseFood = .milk
+            break
+        case .lion:
+            self.baseFood = .meat
+            break
+        case .sheep:
+            self.baseFood = .plants
+            break
+        }
     }
 
     func getSound() -> String {
