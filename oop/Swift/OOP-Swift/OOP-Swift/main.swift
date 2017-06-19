@@ -24,5 +24,9 @@ print("Lion Scar Sound: \(scar.getSound())")
 let dolly = Sheep()
 print("Sheep Dolly Sound: \(dolly.getSound())")
 
+// Cat example
+let garfield = Sheep()
+print("Cat Garfield Sound: \(garfield.getSound())")
+
 print("\n")
 print("Using protocols, inheritance and objects we are able to plot different scenarios with a very few lines of code.\n")
