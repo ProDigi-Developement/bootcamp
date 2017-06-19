@@ -68,4 +68,8 @@ class Animal {
         
         return sound
     }
+    
+    func toString() -> String {
+        return "Animal Sound: \(self.getSound())\nFood: \(self.baseFood)\nMax Age: \(self.maxAge)\n"
+    }
 }
