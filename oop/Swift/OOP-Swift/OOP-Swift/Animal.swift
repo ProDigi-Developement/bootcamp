@@ -25,9 +25,11 @@ class Animal {
     var type: AnimalType
     var baseFood: AnimalFoods
     var maxAge: Int
+    var owner: String
     
-    init(withType type: AnimalType) {
+    init(withType type: AnimalType, andOwner name: String) {
         self.type = type
+        self.owner = name
         
         switch self.type {
         case .dog:
@@ -51,6 +53,7 @@ class Animal {
 
     func getSound() -> String {
         var sound: String = ""
+
         switch self.type {
         case .dog:
             sound = "Woof"
@@ -70,6 +73,6 @@ class Animal {
     }
     
     func toString() -> String {
-        return "Animal Sound: \(self.getSound())\nFood: \(self.baseFood)\nMax Age: \(self.maxAge)\n"
+        return "Animal Sound: \(self.getSound())\nFood: \(self.baseFood)\nMax Age: \(self.maxAge)\nOwner: \(self.owner)\n"
     }
 }
