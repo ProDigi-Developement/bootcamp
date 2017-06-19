@@ -142,3 +142,7 @@ $RECYCLE.BIN/
 /*.gcno
 
 # End of https://www.gitignore.io/api/macos,swift,xcode,windows
+
+
+oop/Web/node_modules
+oop/Web/build
