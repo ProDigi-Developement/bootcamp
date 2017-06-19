@@ -8,8 +8,7 @@
 
 import Foundation
 
-print("OOP Swift examples.")
-print("⚠️ Swift does not have abstract option yet. However, is possible to mimic it using protocols.\n")
+print("OOP Swift how NOT to do examples.\n")
 
 
 // Dog example
@@ -29,4 +28,4 @@ let garfield = Animal(withType: .cat)
 print("Cat Garfield Sound: \(garfield.getSound())")
 
 print("\n")
-print("Using protocols, inheritance and objects we are able to plot different scenarios with a very few lines of code.\n")
+print("Using a single class and putting everything on it is a mess.\n")
