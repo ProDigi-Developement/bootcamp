@@ -12,6 +12,7 @@
 		95A1BB3F1EF834070099AFBC /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB3B1EF834070099AFBC /* Dog.swift */; };
 		95A1BB401EF834070099AFBC /* Lion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB3C1EF834070099AFBC /* Lion.swift */; };
 		95A1BB411EF834070099AFBC /* Sheep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB3D1EF834070099AFBC /* Sheep.swift */; };
+		95A1BB441EF85BC70099AFBC /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB431EF85BC70099AFBC /* Cat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,7 @@
 		95A1BB3B1EF834070099AFBC /* Dog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		95A1BB3C1EF834070099AFBC /* Lion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lion.swift; sourceTree = "<group>"; };
 		95A1BB3D1EF834070099AFBC /* Sheep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sheep.swift; sourceTree = "<group>"; };
+		95A1BB431EF85BC70099AFBC /* Cat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				95A1BB3B1EF834070099AFBC /* Dog.swift */,
 				95A1BB3C1EF834070099AFBC /* Lion.swift */,
 				95A1BB3D1EF834070099AFBC /* Sheep.swift */,
+				95A1BB431EF85BC70099AFBC /* Cat.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				95A1BB341EF8338F0099AFBC /* main.swift in Sources */,
 				95A1BB411EF834070099AFBC /* Sheep.swift in Sources */,
+				95A1BB441EF85BC70099AFBC /* Cat.swift in Sources */,
 				95A1BB3E1EF834070099AFBC /* Animal.swift in Sources */,
 				95A1BB3F1EF834070099AFBC /* Dog.swift in Sources */,
 				95A1BB401EF834070099AFBC /* Lion.swift in Sources */,
@@ -279,6 +283,7 @@
 				95A1BB391EF8338F0099AFBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
