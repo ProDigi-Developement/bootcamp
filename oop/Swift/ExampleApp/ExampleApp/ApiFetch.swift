@@ -7,35 +7,42 @@
 //
 
 import Foundation
+import SystemConfiguration
 
-class UserApi {
-    internal func download(url urlRequest: URL, _ onSuccess: @escaping ConnectionFetchAllSuccess, _ onFail: @escaping ConnectionFetchAllFail) {
+class ApiFetch {
+    let url: URL
+    let delegate: FetchDelegate? = nil
+    
+    init() {
+        self.url = URL(string: "https://randomuser.me/api/?results=20")!
+    }
+
+    internal func fetchUsers() {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
-        let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
-            if let error = error {
-                onFail(FetchConnectionErrors.Unknown(error))
+        let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
+            if let errorUnwrapped = error {
+//                onFail(FetchConnectionErrors.Unknown(error))
             } else {
                 guard let httpResponse = response as? HTTPURLResponse else {
-                    onFail(FetchConnectionErrors.wrongHttpObjectResponse)
+//                    onFail(FetchConnectionErrors.wrongHttpObjectResponse)
                     return
                 }
                 
                 guard httpResponse.statusCode == 200 else {
-                    onFail(FetchConnectionErrors.wrongResponseStatusCode)
+//                    onFail(FetchConnectionErrors.wrongResponseStatusCode)
                     return
                 }
                 
                 if let data = data {
-                    onSuccess(data)
+//                    onSuccess(data)
                 } else {
-                    onFail(FetchConnectionErrors.dataIsNil)
+//                    onFail(FetchConnectionErrors.dataIsNil)
                 }
             }
         })
         
         task.resume()
     }
-
 }

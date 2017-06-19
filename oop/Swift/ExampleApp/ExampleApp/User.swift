@@ -6,4 +6,10 @@
 //  Copyright © 2017 Caio Dias. All rights reserved.
 //
 
-import Foundation
+class User {
+    public let name: String
+    
+    init(withName name: String) {
+        self.name = name
+    }
+}

@@ -6,4 +6,7 @@
 //  Copyright © 2017 Caio Dias. All rights reserved.
 //
 
-import Foundation
+protocol FetchDelegate {
+    func fetchAll(usersList list: [User])
+    func fetchFailed(errorMessage msg: String)
+}
