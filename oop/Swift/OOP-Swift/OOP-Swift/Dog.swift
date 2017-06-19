@@ -9,7 +9,6 @@
 class Dog: Animal {
     var baseFood: AnimalFoods
     var maxAge: Int
-    var owner: String
     
     init() {
         self.baseFood = .milk
