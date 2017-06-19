@@ -6,8 +6,9 @@
 //  Copyright © 2017 Caio Dias. All rights reserved.
 //
 
-class UserController {
-    var userList: [User]
+class UserController: FetchDelegate {
+    private var userList: [User]
+    private let api: ApiFetch
     
     // MARK: Singleton
     static let shared: UserController = {
@@ -17,9 +18,19 @@ class UserController {
     
     private init() {
         self.userList = [User]()
+        self.api = ApiFetch()
+        self.api.delegate = self
     }
     
     func getUsers() {
+        
+    }
+    
+    func fetchAll(usersList list: [User]) {
+        
+    }
+
+    func fetchFailed(errorMessage msg: String) {
         
     }
 }
