@@ -25,7 +25,7 @@ let dolly = Sheep()
 print("Sheep Dolly Sound: \(dolly.getSound())\nFood: \(dolly.baseFood)")
 
 // Cat example
-let garfield = Sheep()
+let garfield = Cat()
 print("Cat Garfield Sound: \(garfield.getSound())\nFood: \(garfield.baseFood)")
 
 print("\n")
