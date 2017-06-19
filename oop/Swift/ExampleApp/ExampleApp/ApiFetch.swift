@@ -9,11 +9,11 @@
 import Foundation
 import SystemConfiguration
 
-class ApiFetch {
-    let url: URL
-    let delegate: FetchDelegate? = nil
+internal class ApiFetch {
+    private let url: URL
+    internal var delegate: FetchDelegate? = nil
     
-    init() {
+    internal init() {
         self.url = URL(string: "https://randomuser.me/api/?results=20")!
     }
 
