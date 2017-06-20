@@ -1,6 +1,6 @@
 # Step 5
 
-### Problem
+### Problem / Requirement
 Pet animals like Dog and Cat must have owner's name.
 ### Goal
 Add a new property only for pet animals like Dog 🐶 and Cat 🐱.
