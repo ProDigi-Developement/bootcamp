@@ -28,6 +28,8 @@ class ViewController: UIViewController, FetchDelegate {
         for user in list {
             print(user.toString())
         }
+        
+        self.tableView.reloadData()
     }
 
     func fetchFailed(errorMessage msg: String) {        
@@ -46,11 +48,11 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let user = UserController.shared.userList[indexPath.row]
-        let rawCell = Bundle.main.loadNibNamed("userCell", owner: UserTableViewCell.self, options: nil)?.first
+        let rawCell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
         
         guard let userCell = rawCell as? UserTableViewCell else {
-            print("Not possible convert the cell to JobHistory Cell")
-            return rawCell as! UITableViewCell
+            print("Not possible convert the cell to UserTableView Cell")
+            return rawCell
         }
 
         userCell.fillCell(withUser: user)
