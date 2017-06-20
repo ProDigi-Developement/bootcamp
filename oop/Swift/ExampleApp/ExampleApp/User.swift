@@ -12,4 +12,8 @@ class User {
     init(withName name: String) {
         self.name = name
     }
+    
+    func toString() -> String {
+        return "User name: \(self.name)"
+    }
 }
