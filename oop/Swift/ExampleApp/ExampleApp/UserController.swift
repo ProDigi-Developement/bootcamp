@@ -27,7 +27,7 @@ class UserController {
         let session = URLSession(configuration: config)
         
         guard let url = URL(string: "https://randomuser.me/api/?results=20") else {
-            // fail
+            self.delegate?.fetchFailed(errorMessage: "Failed to parse the URL.")
             return
         }
         
