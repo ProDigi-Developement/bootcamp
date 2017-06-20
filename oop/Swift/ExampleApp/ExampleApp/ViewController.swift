@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController, FetchDelegate {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,11 +17,12 @@ class ViewController: UIViewController, FetchDelegate {
     }
     
     func fetchAll(usersList list: [User]) {
-
+        for user in list {
+            print(user.toString())
+        }
     }
 
-    func fetchFailed(errorMessage msg: String) {
-        
+    func fetchFailed(errorMessage msg: String) {        
+        print(msg)
     }
 }
-
