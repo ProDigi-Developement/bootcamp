@@ -25,11 +25,9 @@ class ViewController: UIViewController, FetchDelegate {
     }
     
     func fetchAll(usersList list: [User]) {
-        for user in list {
-            print(user.toString())
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
-        
-        self.tableView.reloadData()
     }
 
     func fetchFailed(errorMessage msg: String) {        
