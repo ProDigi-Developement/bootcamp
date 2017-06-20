@@ -9,10 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController, FetchDelegate {
+    @IBOutlet weak var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // MARK: Setup the tableView
+//        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        // MARK: Setup the UserController
         UserController.shared.delegate = self
+        
         UserController.shared.fetchUsers()
     }
     
@@ -24,5 +32,29 @@ class ViewController: UIViewController, FetchDelegate {
 
     func fetchFailed(errorMessage msg: String) {        
         print(msg)
+    }
+}
+
+extension ViewController: UITableViewDataSource {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return UserController.shared.userList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let user = UserController.shared.userList[indexPath.row]
+        let rawCell = Bundle.main.loadNibNamed("userCell", owner: UserTableViewCell.self, options: nil)?.first
+        
+        guard let userCell = rawCell as? UserTableViewCell else {
+            print("Not possible convert the cell to JobHistory Cell")
+            return rawCell as! UITableViewCell
+        }
+
+        userCell.fillCell(withUser: user)
+        
+        return userCell
     }
 }
