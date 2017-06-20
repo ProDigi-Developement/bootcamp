@@ -9,7 +9,7 @@
 import Foundation
 
 class UserController {
-    private var userList: [User]
+    public private(set) var userList: [User]
     public var delegate: FetchDelegate? = nil
     
     // MARK: Singleton
