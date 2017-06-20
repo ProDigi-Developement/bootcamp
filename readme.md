@@ -1,6 +1,6 @@
 # Step 1
 
-### Problem / Requeriment
+### Problem / Requirement
 Start a new macOS Command Line project using Swift language to create objects of different animals like Dog, Lion, Sheep and Cat. Also, display their sound.
 ### Goal
 Use OOP to solve the problem. Dividing the problem in small pieces and then attack then in different stages. Use protocol and models to implement the requirement.
