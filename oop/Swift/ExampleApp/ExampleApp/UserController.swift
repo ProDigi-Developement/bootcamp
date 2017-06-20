@@ -50,7 +50,7 @@ class UserController {
                         let userList = try self.convertToUsers(withData: data)
                         self.userList = userList
                         
-                        self.delegate?.fetchAll(usersList: self.userList)
+                        self.delegate?.fetchAll()
                     } catch {
                         self.delegate?.fetchFailed(errorMessage: "Not possible to convert the JSON to User objects")
                     }

@@ -7,6 +7,6 @@
 //
 
 protocol FetchDelegate {
-    func fetchAll(usersList list: [User])
+    func fetchAll()
     func fetchFailed(errorMessage msg: String)
 }

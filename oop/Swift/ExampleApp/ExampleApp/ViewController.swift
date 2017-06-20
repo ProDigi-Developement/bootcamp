@@ -24,12 +24,14 @@ class ViewController: UIViewController, FetchDelegate {
         UserController.shared.fetchUsers()
     }
     
-    func fetchAll(usersList list: [User]) {
+    // This is the success delegate method
+    func fetchAll() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
 
+    // This is the fail delegate method
     func fetchFailed(errorMessage msg: String) {        
         print(msg)
     }
