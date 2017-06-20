@@ -1,6 +1,6 @@
 # Step 4
 
-### Problem
+### Problem / Requirement
 The actual main class is getting to much code duplication.
 ### Goal
 Use OOP to solve the problem. Changing the protocol to force the model to implement a new function called toString that will return a String with the object values to be printed.
