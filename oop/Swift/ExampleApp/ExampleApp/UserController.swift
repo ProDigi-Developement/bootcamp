@@ -46,10 +46,16 @@ class UserController {
                 }
                 
                 if let data = data {
-                    let userList = self.convertToUsers(withData: data)
-                    self.userList = userList
+                    do {
+                        let userList = try self.convertToUsers(withData: data)
+                        self.userList = userList
+                        
+                        self.delegate?.fetchAll(usersList: self.userList)
+                    } catch {
+                        self.delegate?.fetchFailed(errorMessage: "Not possible to convert the JSON to User objects")
+                    }
                 } else {
-                    self.delegate?.fetchFailed(errorMessage: "")
+                    self.delegate?.fetchFailed(errorMessage: "No data from response.")
                 }
             }
         })
@@ -57,7 +63,19 @@ class UserController {
         task.resume()
     }
     
-    private func convertToUsers(withData data: Data) -> [User] {
-        return [User]()
+    private func convertToUsers(withData data: Data) throws -> [User] {
+        var tempList = [User]()
+
+        let jsonParsed = try JSON(data: data)
+        
+        if let resultsOnJson = jsonParsed["results"].array {
+            for elementFromJSON in resultsOnJson {
+                let userFromJSON = User(withName: elementFromJSON["name"]["first"].stringValue)
+                
+                tempList.append(userFromJSON)
+            }
+        }
+        
+        return tempList
     }
 }
