@@ -35,7 +35,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b7i-dD-6Pc" userLabel="Labels Stack">
-                                                    <rect key="frame" x="16" y="12" width="222.5" height="20.5"/>
+                                                    <rect key="frame" x="16" y="12" width="230.5" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2G-b9-9w0">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="20.5"/>
@@ -47,7 +47,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="name from user object" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KpK-ah-ZtE">
-                                                            <rect key="frame" x="58" y="0.0" width="164.5" height="20.5"/>
+                                                            <rect key="frame" x="58" y="0.0" width="172.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -56,7 +56,6 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="b7i-dD-6Pc" secondAttribute="trailing" constant="96.5" id="Gqw-gR-HDe"/>
                                                 <constraint firstItem="b7i-dD-6Pc" firstAttribute="centerY" secondItem="1eH-6F-xMU" secondAttribute="centerY" id="n6H-b8-MT1"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="b7i-dD-6Pc" secondAttribute="bottom" constant="3.5" id="ohc-aL-c7f"/>
                                                 <constraint firstItem="b7i-dD-6Pc" firstAttribute="leading" secondItem="1eH-6F-xMU" secondAttribute="leadingMargin" constant="8" id="uOg-wC-xCR"/>
