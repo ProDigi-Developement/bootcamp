@@ -1,7 +1,7 @@
 # Step 1
 
 ### Problem / Requirement
-Start a new macOS Command Line project using Swift language to create objects of different animals like Dog, Lion, Sheep and Cat. Also, display their sound.
+Start a new project to create objects of different animals like Dog, Lion, Sheep and Cat. Also, display their sound.
 ### Goal
 Create different instance of each animal and print the sound for each one of them.
 
