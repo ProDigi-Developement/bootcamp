@@ -28,9 +28,9 @@ class Example {
         let lassie = new Dog();
         console.log(`Dog Lassie Sound: ${lassie.getSound()}`)
         let scar = new Lion();
-        console.log(`Dog Lassie Sound: ${scar.getSound()}`)
+        console.log(`Lion Scar Sound: ${scar.getSound()}`)
         let dolly = new Sheep();
-        console.log(`Dog Lassie Sound: ${dolly.getSound()}`)
+        console.log(`Sheep Dolly Sound: ${dolly.getSound()}`)
     }
 }
 
