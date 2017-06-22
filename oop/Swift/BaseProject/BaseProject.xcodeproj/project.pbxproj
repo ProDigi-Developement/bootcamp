@@ -14,6 +14,7 @@
 		955E3A611EFC5A72009DC4A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955E3A5F1EFC5A72009DC4A8 /* LaunchScreen.storyboard */; };
 		955E3A6E1EFC6752009DC4A8 /* CustomObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E3A6D1EFC6752009DC4A8 /* CustomObject.swift */; };
 		955E3A701EFC69FF009DC4A8 /* CustomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E3A6F1EFC69FF009DC4A8 /* CustomController.swift */; };
+		955E3A721EFC766F009DC4A8 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 955E3A711EFC766F009DC4A8 /* CustomTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		955E3A621EFC5A72009DC4A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		955E3A6D1EFC6752009DC4A8 /* CustomObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomObject.swift; sourceTree = "<group>"; };
 		955E3A6F1EFC69FF009DC4A8 /* CustomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomController.swift; sourceTree = "<group>"; };
+		955E3A711EFC766F009DC4A8 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +92,17 @@
 			isa = PBXGroup;
 			children = (
 				955E3A581EFC5A72009DC4A8 /* ViewController.swift */,
+				955E3A731EFC7675009DC4A8 /* CustomCell */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		955E3A731EFC7675009DC4A8 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				955E3A711EFC766F009DC4A8 /* CustomTableViewCell.xib */,
+			);
+			name = CustomCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +167,7 @@
 			files = (
 				955E3A611EFC5A72009DC4A8 /* LaunchScreen.storyboard in Resources */,
 				955E3A5E1EFC5A72009DC4A8 /* Assets.xcassets in Resources */,
+				955E3A721EFC766F009DC4A8 /* CustomTableViewCell.xib in Resources */,
 				955E3A5C1EFC5A72009DC4A8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
