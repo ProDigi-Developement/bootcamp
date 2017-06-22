@@ -12,5 +12,19 @@ final class CustomController {
     
     private init() {
         self.list = [CustomObject]()
+
+        // Stub code to fill the list
+        let objectOne = CustomObject(withName: "One")
+        let objectTwo = CustomObject(withName: "Two")
+        let objectThree = CustomObject(withName: "Three")
+        let objectFour = CustomObject(withName: "Four")
+        let objectFive = CustomObject(withName: "Five")
+        
+        // Add the Stub custom objects to our list
+        self.list.append(objectOne)
+        self.list.append(objectTwo)
+        self.list.append(objectThree)
+        self.list.append(objectFour)
+        self.list.append(objectFive)
     }
 }
