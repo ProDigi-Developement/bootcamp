@@ -48,11 +48,11 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let user = UserController.shared.userList[indexPath.row]
-        let rawCell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
+        let rawCell = Bundle.main.loadNibNamed("UserUITableViewCell", owner: UserUITableViewCell.self, options: nil)?.first
         
-        guard let userCell = rawCell as? UserTableViewCell else {
-            print("Not possible convert the cell to UserTableView Cell")
-            return rawCell
+        guard let userCell = rawCell as? UserUITableViewCell else {
+            print("Not possible convert the cell to UserTableViewCell object")
+            return rawCell as! UITableViewCell
         }
 
         userCell.fillCell(withUser: user)
