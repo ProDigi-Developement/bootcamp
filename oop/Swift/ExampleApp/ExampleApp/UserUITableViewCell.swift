@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserTableViewCell: UITableViewCell {
+class UserUITableViewCell: UITableViewCell {
     @IBOutlet private weak var labelName: UILabel!
     
     func fillCell(withUser user: User) {

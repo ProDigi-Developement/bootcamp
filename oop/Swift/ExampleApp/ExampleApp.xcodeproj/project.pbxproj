@@ -17,7 +17,7 @@
 		95A1BB671EF889840099AFBC /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB661EF889840099AFBC /* UserController.swift */; };
 		95A1BB721EF88EFF0099AFBC /* FetchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB711EF88EFF0099AFBC /* FetchDelegate.swift */; };
 		95A1BB741EF89E6B0099AFBC /* SwiftJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB731EF89E6B0099AFBC /* SwiftJSON.swift */; };
-		95A1BB761EF8A77B0099AFBC /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB751EF8A77B0099AFBC /* UserTableViewCell.swift */; };
+		95A1BB761EF8A77B0099AFBC /* UserUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB751EF8A77B0099AFBC /* UserUITableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		95A1BB661EF889840099AFBC /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		95A1BB711EF88EFF0099AFBC /* FetchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchDelegate.swift; sourceTree = "<group>"; };
 		95A1BB731EF89E6B0099AFBC /* SwiftJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftJSON.swift; sourceTree = "<group>"; };
-		95A1BB751EF8A77B0099AFBC /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		95A1BB751EF8A77B0099AFBC /* UserUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUITableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				95A1BB531EF8888E0099AFBC /* ViewController.swift */,
-				95A1BB751EF8A77B0099AFBC /* UserTableViewCell.swift */,
+				95A1BB751EF8A77B0099AFBC /* UserUITableViewCell.swift */,
 				955E3A481EFC4A00009DC4A8 /* UserUITableViewCell.xib */,
 			);
 			name = View;
@@ -190,7 +190,7 @@
 			files = (
 				95A1BB541EF8888E0099AFBC /* ViewController.swift in Sources */,
 				95A1BB741EF89E6B0099AFBC /* SwiftJSON.swift in Sources */,
-				95A1BB761EF8A77B0099AFBC /* UserTableViewCell.swift in Sources */,
+				95A1BB761EF8A77B0099AFBC /* UserUITableViewCell.swift in Sources */,
 				95A1BB721EF88EFF0099AFBC /* FetchDelegate.swift in Sources */,
 				95A1BB521EF8888E0099AFBC /* AppDelegate.swift in Sources */,
 				95A1BB671EF889840099AFBC /* UserController.swift in Sources */,
