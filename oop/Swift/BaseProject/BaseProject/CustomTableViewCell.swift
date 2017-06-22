@@ -9,5 +9,6 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
+    @IBOutlet weak var labelName: UILabel!
     
 }

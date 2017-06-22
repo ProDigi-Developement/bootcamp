@@ -43,6 +43,9 @@
                     <constraint firstItem="6sX-CR-JoN" firstAttribute="top" secondItem="Ary-xl-Yvm" secondAttribute="top" id="zfq-Kt-V3T"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="labelName" destination="Osc-1p-foP" id="f0Y-3v-4RW"/>
+            </connections>
             <point key="canvasLocation" x="58" y="9"/>
         </tableViewCell>
     </objects>
