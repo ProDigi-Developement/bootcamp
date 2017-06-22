@@ -7,5 +7,10 @@
 //
 
 final class CustomController {
-    public private(set) var list: [CustomObject] = [CustomObject]()
+    public private(set) var list: [CustomObject]
+    public static let sharedInstance = CustomController()
+    
+    private init() {
+        self.list = [CustomObject]()
+    }
 }
