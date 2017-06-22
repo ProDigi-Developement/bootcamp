@@ -17,6 +17,31 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qyh-Bs-gxR" id="Ary-xl-Yvm">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6sX-CR-JoN" userLabel="Labels Stack">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC8-hC-cVK">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="43.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name value from object" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Osc-1p-foP">
+                                <rect key="frame" x="58" y="0.0" width="317" height="43.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="6sX-CR-JoN" secondAttribute="bottom" id="2TI-25-ksy"/>
+                    <constraint firstItem="6sX-CR-JoN" firstAttribute="leading" secondItem="Ary-xl-Yvm" secondAttribute="leading" id="DgH-nS-oaw"/>
+                    <constraint firstAttribute="trailing" secondItem="6sX-CR-JoN" secondAttribute="trailing" id="GEj-Tw-lDd"/>
+                    <constraint firstItem="6sX-CR-JoN" firstAttribute="top" secondItem="Ary-xl-Yvm" secondAttribute="top" id="zfq-Kt-V3T"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="58" y="9"/>
         </tableViewCell>
