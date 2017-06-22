@@ -13,6 +13,7 @@
 		955E3A5E1EFC5A72009DC4A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 955E3A5D1EFC5A72009DC4A8 /* Assets.xcassets */; };
 		955E3A611EFC5A72009DC4A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955E3A5F1EFC5A72009DC4A8 /* LaunchScreen.storyboard */; };
 		955E3A6E1EFC6752009DC4A8 /* CustomObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E3A6D1EFC6752009DC4A8 /* CustomObject.swift */; };
+		955E3A701EFC69FF009DC4A8 /* CustomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E3A6F1EFC69FF009DC4A8 /* CustomController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		955E3A601EFC5A72009DC4A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		955E3A621EFC5A72009DC4A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		955E3A6D1EFC6752009DC4A8 /* CustomObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomObject.swift; sourceTree = "<group>"; };
+		955E3A6F1EFC69FF009DC4A8 /* CustomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		955E3A691EFC5A81009DC4A8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				955E3A6F1EFC69FF009DC4A8 /* CustomController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				955E3A701EFC69FF009DC4A8 /* CustomController.swift in Sources */,
 				955E3A591EFC5A72009DC4A8 /* ViewController.swift in Sources */,
 				955E3A6E1EFC6752009DC4A8 /* CustomObject.swift in Sources */,
 				955E3A571EFC5A72009DC4A8 /* AppDelegate.swift in Sources */,
