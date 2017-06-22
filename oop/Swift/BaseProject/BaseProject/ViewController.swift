@@ -26,11 +26,20 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return CustomController.sharedInstance.list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let customObj = CustomController.sharedInstance.list[indexPath.row]
+        let rawCell = Bundle.main.loadNibNamed("CustomTableViewCell", owner: CustomTableViewCell.self, options: nil)?.first
         
-        return UITableViewCell()
+        guard let customCell = rawCell as? CustomTableViewCell else {
+            print("Not possible convert the cell to CustomTableViewCell Cell")
+            return rawCell as! UITableViewCell
+        }
+        
+        customCell.fillCell(withObject: customObj)
+        
+        return customCell
     }
 }
