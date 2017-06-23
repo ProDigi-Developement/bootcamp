@@ -9,6 +9,9 @@
 import Foundation
 
 class UserController {
+    private typealias FetchSuccessScenario = (Data) -> Void
+    private typealias FetchFailScenario = (String) -> Void
+
     public private(set) var userList: [User]
     public var delegate: FetchDelegate? = nil
     
@@ -23,39 +26,53 @@ class UserController {
     }
     
     public func fetchUsers() {
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        
         guard let url = URL(string: "https://randomuser.me/api/?results=20") else {
             self.delegate?.fetchFailed(errorMessage: "Failed to parse the URL.")
             return
         }
         
+        self.fetch(url: url, onSuccess: onFetchUserSuccess, onFail: onFetchUserFail)
+    }
+    
+    // MARK: Private Methods
+    
+    private func onFetchUserSuccess(data: Data) {
+        do {
+            let userList = try self.convertToUsers(withData: data)
+            self.userList = userList
+
+            self.delegate?.fetchAll()
+        } catch {
+            self.delegate?.fetchFailed(errorMessage: "Not possible to convert the JSON to User objects")
+        }
+    }
+    
+    private func onFetchUserFail(error: String) {
+        self.delegate?.fetchFailed(errorMessage: error)
+    }
+    
+    private func fetch(url: URL, onSuccess: @escaping FetchSuccessScenario, onFail: @escaping FetchFailScenario) {
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
         let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
             if let errorUnwrapped = error {
-                self.delegate?.fetchFailed(errorMessage: errorUnwrapped.localizedDescription)
+                onFail(errorUnwrapped.localizedDescription)
             } else {
                 guard let httpResponse = response as? HTTPURLResponse else {
-                    self.delegate?.fetchFailed(errorMessage: "Failed to parse HTTPURLResponse object")
+                    onFail("Failed to parse HTTPURLResponse object")
                     return
                 }
                 
                 guard httpResponse.statusCode == 200 else {
-                    self.delegate?.fetchFailed(errorMessage: "Failed to receive status code 200. Received: \(httpResponse.statusCode)")
+                    onFail("Failed to receive status code 200. Received: \(httpResponse.statusCode)")
                     return
                 }
                 
-                if let data = data {
-                    do {
-                        let userList = try self.convertToUsers(withData: data)
-                        self.userList = userList
-                        
-                        self.delegate?.fetchAll()
-                    } catch {
-                        self.delegate?.fetchFailed(errorMessage: "Not possible to convert the JSON to User objects")
-                    }
+                if let dataUnwrapped = data {
+                    onSuccess(dataUnwrapped)
                 } else {
-                    self.delegate?.fetchFailed(errorMessage: "No data from response.")
+                    onFail("No data from response.")
                 }
             }
         })
