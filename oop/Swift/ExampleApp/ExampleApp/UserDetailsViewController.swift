@@ -26,4 +26,27 @@ class UserDetailsViewController: UIViewController {
         
         self.textFieldName.isEnabled = self.allowEdit
     }
+    
+    @IBAction func OnSaveButtonTouchUpInside(_ sender: UIButton) {
+        guard let name = self.textFieldName.text,
+              !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        else {
+            Util.displayAlert(onView: self, withTitle: "Invalid Name", message: "Please type a valid name.")
+            return
+        }
+        
+        let userEditted = User(withName: name)
+
+        UserController.shared.updateUser(userEditted, onSuccess: updatedSuccessfully, onFail: updatedFailed)
+    }
+    
+    // This method will be called when the controller get the success scenario on update client call
+    private func updatedSuccessfully(user: User) {
+        Util.displayAlert(onView: self, withTitle: "Success ✅", message: "User \(user.name) udpated successly.")
+    }
+    
+    // This method will be called when the controller get any error on update client call
+    private func updatedFailed(errorMessage msg: String) {
+        Util.displayAlert(onView: self, withTitle: "Error 🙃", message: msg)
+    }
 }
