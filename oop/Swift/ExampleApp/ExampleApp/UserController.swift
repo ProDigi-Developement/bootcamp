@@ -50,7 +50,30 @@ class UserController {
         self.fetch(url: requestUrl, onSuccess: onUpdateUserSuccess, onFail: onUpdateUserFail)
     }
     
+    public func deleteUser(_ user: User) {
+        // TODO: implement the logic to update user object
+        guard let url = URL(string: "https://randomuser.me/api/?results=20") else {
+            self.delegate?.fetchUsersFailed(errorMessage: "Failed to parse the URL.")
+            return
+        }
+        
+        var requestUrl = URLRequest(url: url)
+        requestUrl.httpMethod = "DELETE"
+        
+        self.fetch(url: requestUrl, onSuccess: onDeleteUserSuccess, onFail: onDeleteUserFail)
+    }
+    
     // MARK: Private Methods
+    
+    // MARK: Delete User callbacks
+    
+    private func onDeleteUserSuccess(data: Data) {
+        
+    }
+    
+    private func onDeleteUserFail(error: String) {
+        
+    }
     
     // MARK: Update User callbacks
     
