@@ -36,6 +36,8 @@ class UserController {
     
     // MARK: Private Methods
     
+    
+    // MARK: Fetch Users callbacks
     private func onFetchUserSuccess(data: Data) {
         do {
             let userList = try self.convertToUsers(withData: data)
@@ -50,6 +52,8 @@ class UserController {
     private func onFetchUserFail(error: String) {
         self.delegate?.fetchFailed(errorMessage: error)
     }
+    
+    // MARK: Generic method
     
     private func fetch(url: URL, onSuccess: @escaping FetchSuccessScenario, onFail: @escaping FetchFailScenario) {
         let config = URLSessionConfiguration.default
