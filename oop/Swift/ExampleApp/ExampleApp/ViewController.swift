@@ -65,7 +65,7 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.userSelected = UserController.shared.userList[indexPath.row]
-        print("User Selected: \(self.userSelected.toString())")
+        self.performSegue(withIdentifier: "showUser", sender: self)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
