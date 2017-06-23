@@ -62,16 +62,6 @@ extension ViewController: FetchDelegate {
     func fetchUsersFailed(errorMessage msg: String) {
         self.handleError(message: msg)
     }
-    
-    // This method will be called when the controller get the success scenario on delete client call
-    func deletedSuccessfully(user: User) {
-        // TODO:
-    }
-    
-    // This method will be called when the controller get any error on delete client call
-    func deletedFailed(errorMessage msg: String) {
-        self.handleError(message: msg)
-    }
 }
 
 extension ViewController: UITableViewDataSource {

@@ -65,8 +65,8 @@ public final class UserController {
         })
     }
     
-    public func deleteUser(_ user: User) {
-        // TODO: implement the logic to update user object
+    public func deleteUser(_ user: User, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
+        // TODO: implement the logic to delete user object
         guard let url = URL(string: "https://randomuser.me/api/?results=20") else {
             self.delegate?.fetchUsersFailed(errorMessage: "Failed to parse the URL.")
             return
@@ -75,21 +75,22 @@ public final class UserController {
         var requestUrl = URLRequest(url: url)
         requestUrl.httpMethod = "DELETE"
         
-        self.fetch(url: requestUrl, onSuccessScenario: onDeleteUserSuccess, onFailScenario: onDeleteUserFail)
+        self.fetch(url: requestUrl,
+                   onSuccessScenario: { data in
+                    do {
+                        let userList = try self.convertToUsers(withData: data)
+                        
+                        onSuccess(userList.first!)
+                    } catch {
+                        onFail("Not possible to convert the JSON to User objects")
+                    }
+        },
+                   onFailScenario: { errorMessage in
+                    onFail(errorMessage)
+        })
     }
     
     // MARK: Private Methods
-    
-    // MARK: Delete User callbacks
-    
-    private func onDeleteUserSuccess(data: Data) {
-        // Stub code
-        self.delegate?.deletedSuccessfully(user: User(withName: ""))
-    }
-    
-    private func onDeleteUserFail(error: String) {
-        self.delegate?.deletedFailed(errorMessage: error)
-    }
     
     // MARK: Fetch Users callbacks
     private func onFetchUserSuccess(data: Data) {

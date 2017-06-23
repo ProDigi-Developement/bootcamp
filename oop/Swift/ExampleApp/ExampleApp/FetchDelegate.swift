@@ -10,9 +10,5 @@ public protocol FetchDelegate {
     // MARK: Fetch Users
     func fetchedAllUsers()
     func fetchUsersFailed(errorMessage msg: String)
-    
-    // MARK: Delete User
-    func deletedSuccessfully(user: User)
-    func deletedFailed(errorMessage msg: String)
 }
 
