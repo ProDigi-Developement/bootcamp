@@ -11,6 +11,7 @@ import UIKit
 class UserDetailsViewController: UIViewController {
     @IBOutlet private weak var textFieldName: UITextField!
     var userSelected: User? = nil
+    var allowEdit: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,5 +23,7 @@ class UserDetailsViewController: UIViewController {
         if let userUnwrapped = self.userSelected {
             self.textFieldName.text = userUnwrapped.name
         }
+        
+        self.textFieldName.isEnabled = self.allowEdit
     }
 }
