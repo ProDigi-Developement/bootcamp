@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    let segueId: String = "showUser"
     var userSelected: User!
 
     override func viewDidLoad() {
@@ -27,6 +28,17 @@ class ViewController: UIViewController {
     
     func handleError(message: String) {
         print("Error: \(message)")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == self.segueId) {
+            guard let detailsVC = segue.destination as? UserDetailsViewController else {
+                print("Not possible to convert the segue")
+                return
+            }
+            
+            detailsVC.userSelected = self.userSelected
+        }
     }
 }
 
@@ -81,7 +93,7 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.userSelected = UserController.shared.userList[indexPath.row]
-        self.performSegue(withIdentifier: "showUser", sender: self)
+        self.performSegue(withIdentifier: self.segueId, sender: self)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
