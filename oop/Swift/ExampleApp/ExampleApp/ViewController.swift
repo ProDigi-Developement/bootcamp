@@ -33,6 +33,12 @@ class ViewController: UIViewController {
         Util.displayAlert(onView: self, withTitle: "Error 🙃", message: message)
     }
     
+    func reloadTable() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == self.segueId) {
             guard let detailsVC = segue.destination as? UserDetailsViewController else {
@@ -53,9 +59,7 @@ class ViewController: UIViewController {
 extension ViewController: FetchDelegate {
     // This is the success delegate method
     func fetchedAllUsers() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        self.reloadTable()
     }
     
     // This is the fail delegate method
@@ -96,8 +100,8 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteBtn = UITableViewRowAction(style: .destructive, title: "Delete") { _, _ in
-            let _ = UserController.shared.userList[indexPath.row]
-            // TODO: call delete action
+            let user = UserController.shared.userList[indexPath.row]
+            UserController.shared.deleteUser(user, onSuccess: self.deleteSuccess, onFail: self.deleteFailed)
         }
         
         let editBtn = UITableViewRowAction(style: .normal, title: "Edit") { _, _ in
@@ -111,6 +115,14 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+    }
+    
+    func deleteSuccess(user: User) {
+        self.reloadTable()
+    }
+    
+    func deleteFailed(errorMessage: String) {
+        self.handleError(message: errorMessage)
     }
 }
 
