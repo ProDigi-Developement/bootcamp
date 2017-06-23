@@ -34,6 +34,8 @@ public final class UserController {
             return
         }
         
+        self.userList = [User]()
+        
         var requestUrl = URLRequest(url: url)
         requestUrl.httpMethod = "GET"
         
@@ -54,6 +56,8 @@ public final class UserController {
                    onSuccessScenario: { data in
                     do {
                         let userList = try self.convertToUsers(withData: data)
+                        
+                        self.fetchUsers()
                         
                         onSuccess(userList.first!)
                     } catch {
@@ -79,6 +83,8 @@ public final class UserController {
                    onSuccessScenario: { data in
                     do {
                         let userList = try self.convertToUsers(withData: data)
+                        
+                        self.fetchUsers()
                         
                         onSuccess(userList.first!)
                     } catch {
