@@ -34,8 +34,27 @@ class UserController {
         self.fetch(url: url, onSuccess: onFetchUserSuccess, onFail: onFetchUserFail)
     }
     
+    public func updateUser(_ user: User) {
+        // TODO: implement the logic to update user object
+        guard let url = URL(string: "https://randomuser.me/api/?results=20") else {
+            self.delegate?.fetchFailed(errorMessage: "Failed to parse the URL.")
+            return
+        }
+        
+        self.fetch(url: url, onSuccess: onUpdateUserSuccess, onFail: onUpdateUserFail)
+    }
+    
     // MARK: Private Methods
     
+    // MARK: Update User callbacks
+    
+    private func onUpdateUserSuccess(data: Data) {
+        // TODO: handle the success on update user
+    }
+    
+    private func onUpdateUserFail(error: String) {
+        self.delegate?.fetchFailed(errorMessage: error)
+    }
     
     // MARK: Fetch Users callbacks
     private func onFetchUserSuccess(data: Data) {
@@ -53,7 +72,7 @@ class UserController {
         self.delegate?.fetchFailed(errorMessage: error)
     }
     
-    // MARK: Generic method
+    // MARK: Generic methods
     
     private func fetch(url: URL, onSuccess: @escaping FetchSuccessScenario, onFail: @escaping FetchFailScenario) {
         let config = URLSessionConfiguration.default
