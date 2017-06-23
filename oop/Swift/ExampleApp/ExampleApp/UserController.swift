@@ -68,11 +68,12 @@ class UserController {
     // MARK: Delete User callbacks
     
     private func onDeleteUserSuccess(data: Data) {
-        
+        // Stub code
+        self.delegate?.deletedSuccessfully(user: User(withName: ""))
     }
     
     private func onDeleteUserFail(error: String) {
-        
+        self.delegate?.deletedFailed(errorMessage: error)
     }
     
     // MARK: Update User callbacks
