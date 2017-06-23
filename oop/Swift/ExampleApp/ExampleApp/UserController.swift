@@ -37,7 +37,7 @@ public final class UserController {
         var requestUrl = URLRequest(url: url)
         requestUrl.httpMethod = "GET"
         
-        self.fetch(url: requestUrl, onSuccess: onFetchUserSuccess, onFail: onFetchUserFail)
+        self.fetch(url: requestUrl, onSuccessScenario: onFetchUserSuccess, onFailScenario: onFetchUserFail)
     }
     
     public func updateUser(_ user: User, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
@@ -51,7 +51,7 @@ public final class UserController {
         requestUrl.httpMethod = "PUT"
         
         self.fetch(url: requestUrl,
-                   onSuccess: { data in
+                   onSuccessScenario: { data in
                     do {
                         let userList = try self.convertToUsers(withData: data)
                         
@@ -60,7 +60,7 @@ public final class UserController {
                         onFail("Not possible to convert the JSON to User objects")
                     }
         },
-                   onFail: { errorMessage in
+                   onFailScenario: { errorMessage in
                     onFail(errorMessage)
         })
     }
@@ -75,7 +75,7 @@ public final class UserController {
         var requestUrl = URLRequest(url: url)
         requestUrl.httpMethod = "DELETE"
         
-        self.fetch(url: requestUrl, onSuccess: onDeleteUserSuccess, onFail: onDeleteUserFail)
+        self.fetch(url: requestUrl, onSuccessScenario: onDeleteUserSuccess, onFailScenario: onDeleteUserFail)
     }
     
     // MARK: Private Methods
@@ -109,7 +109,7 @@ public final class UserController {
     
     // MARK: Generic methods
     
-    private func fetch(url: URLRequest, onSuccess: @escaping FetchSuccessScenario, onFail: @escaping FetchFailScenario) {
+    private func fetch(url: URLRequest, onSuccessScenario onSuccess: @escaping FetchSuccessScenario, onFailScenario onFail: @escaping FetchFailScenario) {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
