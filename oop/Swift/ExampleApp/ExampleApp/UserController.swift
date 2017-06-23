@@ -27,7 +27,7 @@ class UserController {
     
     public func fetchUsers() {
         guard let url = URL(string: "https://randomuser.me/api/?results=20") else {
-            self.delegate?.fetchFailed(errorMessage: "Failed to parse the URL.")
+            self.delegate?.fetchUsersFailed(errorMessage: "Failed to parse the URL.")
             return
         }
         
@@ -37,7 +37,7 @@ class UserController {
     public func updateUser(_ user: User) {
         // TODO: implement the logic to update user object
         guard let url = URL(string: "https://randomuser.me/api/?results=20") else {
-            self.delegate?.fetchFailed(errorMessage: "Failed to parse the URL.")
+            self.delegate?.fetchUsersFailed(errorMessage: "Failed to parse the URL.")
             return
         }
         
@@ -53,7 +53,7 @@ class UserController {
     }
     
     private func onUpdateUserFail(error: String) {
-        self.delegate?.fetchFailed(errorMessage: error)
+        self.delegate?.fetchUsersFailed(errorMessage: error)
     }
     
     // MARK: Fetch Users callbacks
@@ -62,14 +62,14 @@ class UserController {
             let userList = try self.convertToUsers(withData: data)
             self.userList = userList
 
-            self.delegate?.fetchAll()
+            self.delegate?.fetchedAllUsers()
         } catch {
-            self.delegate?.fetchFailed(errorMessage: "Not possible to convert the JSON to User objects")
+            self.delegate?.fetchUsersFailed(errorMessage: "Not possible to convert the JSON to User objects")
         }
     }
     
     private func onFetchUserFail(error: String) {
-        self.delegate?.fetchFailed(errorMessage: error)
+        self.delegate?.fetchUsersFailed(errorMessage: error)
     }
     
     // MARK: Generic methods

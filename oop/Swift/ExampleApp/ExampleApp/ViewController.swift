@@ -26,14 +26,14 @@ class ViewController: UIViewController, FetchDelegate {
     }
     
     // This is the success delegate method
-    func fetchAll() {
+    func fetchedAllUsers() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
 
     // This is the fail delegate method
-    func fetchFailed(errorMessage msg: String) {        
+    func fetchUsersFailed(errorMessage msg: String) {
         print(msg)
     }
 }
