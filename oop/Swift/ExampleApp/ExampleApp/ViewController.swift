@@ -29,11 +29,8 @@ class ViewController: UIViewController {
     
     func handleError(message: String) {
         print("Error: \(message)")
-        let alertController = UIAlertController(title: "Error 🙃", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alertController.addAction(okAction)
         
-        self.present(alertController, animated: true, completion: nil)
+        Util.displayAlert(onView: self, withTitle: "Error 🙃", message: message)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
