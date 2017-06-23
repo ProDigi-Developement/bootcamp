@@ -10,12 +10,13 @@ import UIKit
 
 class ViewController: UIViewController, FetchDelegate {
     @IBOutlet weak var tableView: UITableView!
+    var userSelected: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // MARK: Setup the tableView
-//        self.tableView.delegate = self
+        self.tableView.delegate = self
         self.tableView.dataSource = self
         
         // MARK: Setup the UserController
@@ -60,3 +61,25 @@ extension ViewController: UITableViewDataSource {
         return userCell
     }
 }
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.userSelected = UserController.shared.userList[indexPath.row]
+        print("User Selected: \(self.userSelected.toString())")
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { _, _ in
+            let _ = UserController.shared.userList[indexPath.row]
+            // TODO: call delete action
+        }
+        delete.backgroundColor = .red
+        
+        return [delete]
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+}
+
