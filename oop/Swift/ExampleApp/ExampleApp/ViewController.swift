@@ -63,16 +63,6 @@ extension ViewController: FetchDelegate {
         self.handleError(message: msg)
     }
     
-    // This method will be called when the controller get the success scenario on update client call
-    func updatedSuccessfully(user: User) {
-        // TODO: 
-    }
-
-    // This method will be called when the controller get any error on update client call
-    func updatedFailed(errorMessage msg: String) {
-        self.handleError(message: msg)
-    }
-    
     // This method will be called when the controller get the success scenario on delete client call
     func deletedSuccessfully(user: User) {
         // TODO:

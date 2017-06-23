@@ -8,15 +8,18 @@
 
 import Foundation
 
-class UserController {
+public typealias ControllerSuccessScenario = (User) -> Void
+public typealias ControllerFailScenario = (String) -> Void
+
+public final class UserController {
     private typealias FetchSuccessScenario = (Data) -> Void
     private typealias FetchFailScenario = (String) -> Void
-
+    
     public private(set) var userList: [User]
     public var delegate: FetchDelegate? = nil
     
     // MARK: Singleton
-    static let shared: UserController = {
+    public static let shared: UserController = {
         let instance = UserController()
         return instance
     }()
@@ -37,17 +40,29 @@ class UserController {
         self.fetch(url: requestUrl, onSuccess: onFetchUserSuccess, onFail: onFetchUserFail)
     }
     
-    public func updateUser(_ user: User) {
+    public func updateUser(_ user: User, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
         // TODO: implement the logic to update user object
         guard let url = URL(string: "https://randomuser.me/api/?results=20") else {
-            self.delegate?.fetchUsersFailed(errorMessage: "Failed to parse the URL.")
+            onFail("Failed to parse the URL.")
             return
         }
         
         var requestUrl = URLRequest(url: url)
         requestUrl.httpMethod = "PUT"
         
-        self.fetch(url: requestUrl, onSuccess: onUpdateUserSuccess, onFail: onUpdateUserFail)
+        self.fetch(url: requestUrl,
+                   onSuccess: { data in
+                    do {
+                        let userList = try self.convertToUsers(withData: data)
+                        
+                        onSuccess(userList.first!)
+                    } catch {
+                        onFail("Not possible to convert the JSON to User objects")
+                    }
+        },
+                   onFail: { errorMessage in
+                    onFail(errorMessage)
+        })
     }
     
     public func deleteUser(_ user: User) {
@@ -74,22 +89,6 @@ class UserController {
     
     private func onDeleteUserFail(error: String) {
         self.delegate?.deletedFailed(errorMessage: error)
-    }
-    
-    // MARK: Update User callbacks
-    
-    private func onUpdateUserSuccess(data: Data) {
-        do {
-            let userList = try self.convertToUsers(withData: data)
-            
-            self.delegate?.updatedSuccessfully(user: userList.first!)
-        } catch {
-            self.delegate?.updatedFailed(errorMessage: "Not possible to convert the JSON to User objects")
-        }
-    }
-    
-    private func onUpdateUserFail(error: String) {
-        self.delegate?.updatedFailed(errorMessage: error)
     }
     
     // MARK: Fetch Users callbacks
