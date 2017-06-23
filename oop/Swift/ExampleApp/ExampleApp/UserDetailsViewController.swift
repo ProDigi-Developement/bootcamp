@@ -9,7 +9,7 @@
 import UIKit
 
 class UserDetailsViewController: UIViewController {
-    @IBOutlet private weak var labelName: UILabel!
+    @IBOutlet private weak var textFieldName: UITextField!
     var userSelected: User? = nil
     
     override func viewDidLoad() {
@@ -18,5 +18,9 @@ class UserDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if let userUnwrapped = self.userSelected {
+            self.textFieldName.text = userUnwrapped.name
+        }
     }
 }

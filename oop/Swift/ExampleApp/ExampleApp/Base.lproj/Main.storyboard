@@ -104,6 +104,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="User Details" id="kFc-C0-9Ny"/>
+                    <connections>
+                        <outlet property="textFieldName" destination="uzU-lH-FGW" id="Kad-E2-JZi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="na6-Ki-TnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
