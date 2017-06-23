@@ -31,7 +31,10 @@ class UserController {
             return
         }
         
-        self.fetch(url: url, onSuccess: onFetchUserSuccess, onFail: onFetchUserFail)
+        var requestUrl = URLRequest(url: url)
+        requestUrl.httpMethod = "GET"
+        
+        self.fetch(url: requestUrl, onSuccess: onFetchUserSuccess, onFail: onFetchUserFail)
     }
     
     public func updateUser(_ user: User) {
@@ -41,7 +44,10 @@ class UserController {
             return
         }
         
-        self.fetch(url: url, onSuccess: onUpdateUserSuccess, onFail: onUpdateUserFail)
+        var requestUrl = URLRequest(url: url)
+        requestUrl.httpMethod = "PUT"
+        
+        self.fetch(url: requestUrl, onSuccess: onUpdateUserSuccess, onFail: onUpdateUserFail)
     }
     
     // MARK: Private Methods
@@ -80,7 +86,7 @@ class UserController {
     
     // MARK: Generic methods
     
-    private func fetch(url: URL, onSuccess: @escaping FetchSuccessScenario, onFail: @escaping FetchFailScenario) {
+    private func fetch(url: URLRequest, onSuccess: @escaping FetchSuccessScenario, onFail: @escaping FetchFailScenario) {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
