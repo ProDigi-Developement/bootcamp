@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		955E3A491EFC4A00009DC4A8 /* UserUITableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 955E3A481EFC4A00009DC4A8 /* UserUITableViewCell.xib */; };
 		955E3A7A1EFD8FA6009DC4A8 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E3A791EFD8FA6009DC4A8 /* UserDetailsViewController.swift */; };
+		955E3A7F1EFD9E61009DC4A8 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E3A7E1EFD9E61009DC4A8 /* Util.swift */; };
 		95A1BB521EF8888E0099AFBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB511EF8888E0099AFBC /* AppDelegate.swift */; };
 		95A1BB541EF8888E0099AFBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB531EF8888E0099AFBC /* ViewController.swift */; };
 		95A1BB571EF8888E0099AFBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95A1BB551EF8888E0099AFBC /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		955E3A481EFC4A00009DC4A8 /* UserUITableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserUITableViewCell.xib; sourceTree = "<group>"; };
 		955E3A791EFD8FA6009DC4A8 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		955E3A7E1EFD9E61009DC4A8 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		95A1BB4E1EF8888E0099AFBC /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95A1BB511EF8888E0099AFBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95A1BB531EF8888E0099AFBC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 				955E3A481EFC4A00009DC4A8 /* UserUITableViewCell.xib */,
 			);
 			name = UserCell;
+			sourceTree = "<group>";
+		};
+		955E3A7B1EFD9AE8009DC4A8 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				95A1BB711EF88EFF0099AFBC /* FetchDelegate.swift */,
+			);
+			name = Protocol;
 			sourceTree = "<group>";
 		};
 		95A1BB451EF8888E0099AFBC = {
@@ -99,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				95A1BB661EF889840099AFBC /* UserController.swift */,
-				95A1BB711EF88EFF0099AFBC /* FetchDelegate.swift */,
+				955E3A7B1EFD9AE8009DC4A8 /* Protocol */,
 				95A1BB731EF89E6B0099AFBC /* SwiftJSON.swift */,
 			);
 			name = Controller;
@@ -108,6 +118,7 @@
 		95A1BB6D1EF88ADB0099AFBC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				955E3A7E1EFD9E61009DC4A8 /* Util.swift */,
 				95A1BB531EF8888E0099AFBC /* ViewController.swift */,
 				955E3A791EFD8FA6009DC4A8 /* UserDetailsViewController.swift */,
 				955E3A781EFD7736009DC4A8 /* UserCell */,
@@ -200,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95A1BB541EF8888E0099AFBC /* ViewController.swift in Sources */,
+				955E3A7F1EFD9E61009DC4A8 /* Util.swift in Sources */,
 				95A1BB741EF89E6B0099AFBC /* SwiftJSON.swift in Sources */,
 				95A1BB761EF8A77B0099AFBC /* UserUITableViewCell.swift in Sources */,
 				95A1BB721EF88EFF0099AFBC /* FetchDelegate.swift in Sources */,
