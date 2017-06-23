@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--User List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ExampleApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,31 +23,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qaW-kR-G49">
-                                <rect key="frame" x="16" y="106" width="343" height="561"/>
+                                <rect key="frame" x="16" y="64" width="343" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="py6-Kt-4xg">
-                                <rect key="frame" x="164.5" y="64" width="45" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="PEJ-6w-Wr5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qaW-kR-G49" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="1MR-JC-QZt"/>
-                            <constraint firstItem="py6-Kt-4xg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bg5-mI-iEE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qaW-kR-G49" secondAttribute="trailing" id="PXA-ju-vfY"/>
-                            <constraint firstItem="qaW-kR-G49" firstAttribute="top" secondItem="py6-Kt-4xg" secondAttribute="bottom" constant="20" id="XMo-Fy-kCq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qaW-kR-G49" secondAttribute="bottom" id="bnW-so-Cr6"/>
-                            <constraint firstItem="py6-Kt-4xg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="vdB-Hm-jMR"/>
+                            <constraint firstItem="qaW-kR-G49" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="mCA-Jw-7xN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eZX-SY-N0a"/>
+                    <navigationItem key="navigationItem" title="User List" id="eZX-SY-N0a"/>
                     <connections>
                         <outlet property="tableView" destination="qaW-kR-G49" id="FN9-FT-0wU"/>
                         <segue destination="Ssd-J3-kJB" kind="show" identifier="showUser" id="XV4-cv-Rp9"/>
@@ -57,7 +46,7 @@
             </objects>
             <point key="canvasLocation" x="174" y="123"/>
         </scene>
-        <!--View Controller-->
+        <!--User Details-->
         <scene sceneID="hJ6-WA-ul7">
             <objects>
                 <viewController id="Ssd-J3-kJB" sceneMemberID="viewController">
@@ -70,7 +59,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLK-OC-Xyf">
-                                <rect key="frame" x="62" y="170" width="250" height="40"/>
+                                <rect key="frame" x="62" y="214" width="250" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HIG-BF-GEq">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="40"/>
@@ -101,7 +90,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0u-ty-Lob">
-                                <rect key="frame" x="170" y="310" width="34" height="30"/>
+                                <rect key="frame" x="170" y="354" width="34" height="30"/>
                                 <state key="normal" title="Save"/>
                             </button>
                         </subviews>
@@ -113,6 +102,7 @@
                             <constraint firstItem="b0u-ty-Lob" firstAttribute="centerX" secondItem="uLK-OC-Xyf" secondAttribute="centerX" id="yxH-mL-IOj"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="User Details" id="kFc-C0-9Ny"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="na6-Ki-TnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
