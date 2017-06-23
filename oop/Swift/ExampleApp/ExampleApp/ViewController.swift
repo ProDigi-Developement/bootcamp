@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let segueId: String = "showUser"
     var userSelected: User!
+    var editUser: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,12 @@ class ViewController: UIViewController {
                 return
             }
             
+            // Set the values for UserDetailsViewController
             detailsVC.userSelected = self.userSelected
+            detailsVC.allowEdit = self.editUser
+            
+            // Return the value to the default value
+            self.editUser = false
         }
     }
 }
@@ -97,13 +103,18 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { _, _ in
+        let deleteBtn = UITableViewRowAction(style: .destructive, title: "Delete") { _, _ in
             let _ = UserController.shared.userList[indexPath.row]
             // TODO: call delete action
         }
-        delete.backgroundColor = .red
         
-        return [delete]
+        let editBtn = UITableViewRowAction(style: .normal, title: "Edit") { _, _ in
+            self.editUser = true
+            self.userSelected = UserController.shared.userList[indexPath.row]
+            self.performSegue(withIdentifier: self.segueId, sender: self)
+        }
+        
+        return [editBtn, deleteBtn]
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
