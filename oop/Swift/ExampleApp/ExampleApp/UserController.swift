@@ -49,11 +49,17 @@ class UserController {
     // MARK: Update User callbacks
     
     private func onUpdateUserSuccess(data: Data) {
-        // TODO: handle the success on update user
+        do {
+            let userList = try self.convertToUsers(withData: data)
+            
+            self.delegate?.updatedSuccessfully(user: userList.first!)
+        } catch {
+            self.delegate?.updatedFailed(errorMessage: "Not possible to convert the JSON to User objects")
+        }
     }
     
     private func onUpdateUserFail(error: String) {
-        self.delegate?.fetchUsersFailed(errorMessage: error)
+        self.delegate?.updatedFailed(errorMessage: error)
     }
     
     // MARK: Fetch Users callbacks

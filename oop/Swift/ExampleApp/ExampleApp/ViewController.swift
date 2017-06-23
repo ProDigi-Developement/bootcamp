@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, FetchDelegate {
+class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var userSelected: User!
 
@@ -25,16 +25,32 @@ class ViewController: UIViewController, FetchDelegate {
         UserController.shared.fetchUsers()
     }
     
+    func handleError(message: String) {
+        print("Error: \(message)")
+    }
+}
+
+extension ViewController: FetchDelegate {
     // This is the success delegate method
     func fetchedAllUsers() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
-
+    
     // This is the fail delegate method
     func fetchUsersFailed(errorMessage msg: String) {
-        print(msg)
+        self.handleError(message: msg)
+    }
+    
+    // This method will be called when the controller get the success scenario on update client call
+    func updatedSuccessfully(user: User) {
+        // TODO: 
+    }
+
+    // This method will be called when the controller get any error on update client call
+    func updatedFailed(errorMessage msg: String) {
+        self.handleError(message: msg)
     }
 }
 

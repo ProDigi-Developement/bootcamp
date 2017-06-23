@@ -7,7 +7,12 @@
 //
 
 protocol FetchDelegate {
+    // MARK: Fetch Users
     func fetchedAllUsers()
     func fetchUsersFailed(errorMessage msg: String)
+    
+    // MARK: Update User
+    func updatedSuccessfully(user: User)
+    func updatedFailed(errorMessage msg: String)
 }
 
