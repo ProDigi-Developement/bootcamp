@@ -6,7 +6,7 @@
 //  Copyright © 2017 Caio Dias. All rights reserved.
 //
 
-protocol FetchDelegate {
+public protocol FetchDelegate {
     // MARK: Fetch Users
     func fetchedAllUsers()
     func fetchUsersFailed(errorMessage msg: String)

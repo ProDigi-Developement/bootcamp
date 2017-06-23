@@ -6,14 +6,14 @@
 //  Copyright © 2017 Caio Dias. All rights reserved.
 //
 
-class User {
+public class User {
     public let name: String
     
-    init(withName name: String) {
+    public init(withName name: String) {
         self.name = name
     }
     
-    func toString() -> String {
+    public func toString() -> String {
         return "User name: \(self.name)"
     }
 }
