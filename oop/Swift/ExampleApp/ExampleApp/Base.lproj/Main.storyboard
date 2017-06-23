@@ -50,7 +50,7 @@
         <!--User Details-->
         <scene sceneID="hJ6-WA-ul7">
             <objects>
-                <viewController id="Ssd-J3-kJB" sceneMemberID="viewController">
+                <viewController id="Ssd-J3-kJB" customClass="UserDetailsViewController" customModule="ExampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DXm-iM-OTp"/>
                         <viewControllerLayoutGuide type="bottom" id="9bZ-Tg-bQi"/>
