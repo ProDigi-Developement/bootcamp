@@ -8,19 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    let segueId: String = "showDetails"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.tableView.dataSource = self
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if (segue.identifier == self.segueId) {
+//            guard let detailsVC = segue.destination as? JobDetailsVC else {
+//                print("Not possible to convert the segue")
+//                return
+//            }
+//            
+//            detailsVC.jobToDisplay = self.jobSelected
+//        }
+//    }
 }
 
 // MARK: Table View Data Source
 
-extension ViewController: UITableViewDataSource {
+extension ListViewController: UITableViewDataSource {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -43,3 +55,10 @@ extension ViewController: UITableViewDataSource {
         return customCell
     }
 }
+
+//extension ViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        self.jobSelected = self.jobsSource[indexPath.row]
+//        self.performSegue(withIdentifier: self.segueId, sender: self)
+//    }
+//}

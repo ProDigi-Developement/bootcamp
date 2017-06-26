@@ -13,7 +13,7 @@
         <!--List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BaseProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="BaseProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -38,7 +38,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="List" id="VhO-eI-Uny"/>
                     <connections>
-                        <outlet property="tableView" destination="DTW-EI-Yo2" id="JeA-ck-Xg1"/>
+                        <outlet property="tableView" destination="DTW-EI-Yo2" id="g5F-Xi-jNA"/>
                         <segue destination="iUx-9A-Luy" kind="show" identifier="showDetails" id="rYI-6d-my2"/>
                     </connections>
                 </viewController>
@@ -49,7 +49,7 @@
         <!--Details-->
         <scene sceneID="8hY-sF-JZR">
             <objects>
-                <viewController id="iUx-9A-Luy" sceneMemberID="viewController">
+                <viewController id="iUx-9A-Luy" customClass="DetailsViewController" customModule="BaseProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="plK-et-swm"/>
                         <viewControllerLayoutGuide type="bottom" id="V7G-El-PRl"/>
@@ -90,6 +90,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="7sC-wm-DNL"/>
+                    <connections>
+                        <outlet property="textFieldName" destination="xGh-3R-MAE" id="I5r-GD-oqk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kg4-FH-hwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
