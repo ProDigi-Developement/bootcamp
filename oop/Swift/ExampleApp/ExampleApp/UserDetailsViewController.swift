@@ -11,6 +11,7 @@ import UIKit
 class UserDetailsViewController: UIViewController {
     @IBOutlet private weak var textFieldName: UITextField!
     @IBOutlet private weak var textFieldDescription: UITextField!
+    @IBOutlet private weak var buttonSave: UIButton!
     var userSelected: User? = nil
     var allowEdit: Bool = false
     
@@ -28,6 +29,7 @@ class UserDetailsViewController: UIViewController {
         
         self.textFieldName.isEnabled = self.allowEdit
         self.textFieldDescription.isEnabled = self.allowEdit
+        self.buttonSave.isHidden = !self.allowEdit
     }
     
     @IBAction func OnSaveButtonTouchUpInside(_ sender: UIButton) {

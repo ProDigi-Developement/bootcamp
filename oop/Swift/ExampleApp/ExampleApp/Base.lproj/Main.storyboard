@@ -202,6 +202,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="User Details" id="kFc-C0-9Ny"/>
                     <connections>
+                        <outlet property="buttonSave" destination="b0u-ty-Lob" id="J80-2P-Cjd"/>
                         <outlet property="textFieldDescription" destination="f64-w3-Bdk" id="qPx-mG-tcj"/>
                         <outlet property="textFieldName" destination="uzU-lH-FGW" id="Kad-E2-JZi"/>
                     </connections>
