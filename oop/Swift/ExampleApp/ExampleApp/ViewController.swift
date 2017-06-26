@@ -117,7 +117,7 @@ extension ViewController: UITableViewDelegate {
         return true
     }
     
-    func deleteSuccess(user: User) {
+    func deleteSuccess() {
         self.reloadTable()
     }
     

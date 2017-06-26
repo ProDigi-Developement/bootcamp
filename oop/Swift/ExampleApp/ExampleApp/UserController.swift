@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias ControllerSuccessScenario = (User) -> Void
+public typealias ControllerSuccessScenario = () -> Void
 public typealias ControllerFailScenario = (String) -> Void
 
 public final class UserController {
@@ -54,15 +54,9 @@ public final class UserController {
         
         self.fetch(url: requestUrl,
                    onSuccessScenario: { data in
-                    do {
-                        let userList = try self.convertToUsers(withData: data)
-                        
                         self.fetchUsers()
                         
-                        onSuccess(userList.first!)
-                    } catch {
-                        onFail("Not possible to convert the JSON to User objects")
-                    }
+                        onSuccess()
         },
                    onFailScenario: { errorMessage in
                     onFail(errorMessage)
@@ -81,15 +75,9 @@ public final class UserController {
         
         self.fetch(url: requestUrl,
                    onSuccessScenario: { data in
-                    do {
-                        let userList = try self.convertToUsers(withData: data)
-                        
                         self.fetchUsers()
                         
-                        onSuccess(userList.first!)
-                    } catch {
-                        onFail("Not possible to convert the JSON to User objects")
-                    }
+                        onSuccess()
         },
                    onFailScenario: { errorMessage in
                     onFail(errorMessage)
