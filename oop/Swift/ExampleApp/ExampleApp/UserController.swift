@@ -42,6 +42,26 @@ public final class UserController {
         self.fetch(url: requestUrl, onSuccessScenario: onFetchUserSuccess, onFailScenario: onFetchUserFail)
     }
     
+    public func addUser(_ user: User, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
+        guard let url = URL(string: "https://prodigi-bootcamp.firebaseio.com/oUhddrCgG9fRxdixzIEySnf4Gsg1/messages.json?auth=eyJhbGciOiJSUzI1NiIsImtpZCI6IjUwOTQ5NTk0NDUyOGNlMWE2YjhjZDljNzVlMTA1YjkxOGY1NjMwYmQifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcHJvZGlnaS1ib290Y2FtcCIsImF1ZCI6InByb2RpZ2ktYm9vdGNhbXAiLCJhdXRoX3RpbWUiOjE0OTg1MDAyMDMsInVzZXJfaWQiOiJvVWhkZHJDZ0c5ZlJ4ZGl4eklFeVNuZjRHc2cxIiwic3ViIjoib1VoZGRyQ2dHOWZSeGRpeHpJRXlTbmY0R3NnMSIsImlhdCI6MTQ5ODUwMDIwNCwiZXhwIjoxNDk4NTAzODA0LCJlbWFpbCI6Imtpb2JyZW5vK2ZpcmViYXNlQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJraW9icmVubytmaXJlYmFzZUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.MJ_crimRNtmINOOU795pI8f1bNNSg2OgcI4FQ_GOgUDsAaL3Uy6DxPSxsP25g_0JSBLJAVhf2YoQf8QqftfGiAfJ-Szlb3idkTDSFKuJixxehfaTdNDWPAyFKZesSo3iqT-3OV216603sp8GfCcmzR3almQW1561jUe5VcFCEpxMxGS7l8Bx9gKKg4Hrm66tPfLD50uAsnehQ6wLtprR8EwTs-IiJ-6IrYd-SnM0zEAxBfn6eMdKU5Aj9snLex0OW6K9qghU8zl2ior8EyJW3OdgpmiPT34ZWdE0Ud29tpVWyP3jgEiHCSMsI2gMMdvswMJk5V0UFD6uDAHXZQbffg") else {
+            self.delegate?.fetchUsersFailed(errorMessage: "Failed to parse the URL.")
+            return
+        }
+        
+        var requestUrl = URLRequest(url: url)
+        requestUrl.httpMethod = "POST"
+        
+        self.fetch(url: requestUrl,
+                   onSuccessScenario: { data in
+                        self.fetchUsers()
+                        
+                        onSuccess()
+        },
+                   onFailScenario: { errorMessage in
+                    onFail(errorMessage)
+        })
+    }
+    
     public func updateUser(_ user: User, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
         // TODO: implement the logic to update user object
         guard let url = URL(string: "https://randomuser.me/api/?results=20") else {
