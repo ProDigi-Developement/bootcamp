@@ -22,14 +22,19 @@ public final class UserController {
     public var delegate: FetchDelegate? = nil
     
     // MARK: Singleton
+    
     public static let shared: UserController = {
         let instance = UserController()
         return instance
     }()
     
+    // Private Controller constructor due to implementation of Singleton Design Pattern
+    
     private init() {
         self.userList = [User]()
     }
+    
+    // MARK: Fetch users from backend (Firebase)
     
     public func fetchUsers() {
         if let url = getUrl() {
@@ -43,6 +48,8 @@ public final class UserController {
             self.delegate?.fetchUsersFailed(errorMessage: "Not possible to create the URL object")
         }
     }
+    
+    // MARK: Add user on backend (Firebase)
     
     public func addUser(_ user: User, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
         if let url = getUrl() {
@@ -67,6 +74,8 @@ public final class UserController {
             onFail("Not possible to create the URL object")
         }
     }
+    
+    // MARK: Update user on backend (Firebase)
     
     public func updateUser(_ user: User, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
         if let url = getUrl() {
@@ -94,6 +103,8 @@ public final class UserController {
             onFail("Not possible to create the URL object")
         }
     }
+    
+    // MARK: Delete user on backend (Firebase)
     
     public func deleteUser(_ user: User, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
         guard let url = URL(string: String(format: "%@/%@.json?auth=%@", self.baseUrl, user.objectId, self.token)) else {
