@@ -18,4 +18,11 @@ public class User {
     public func toString() -> String {
         return "User name: \(self.name)\n Description: \(self.description)"
     }
+    
+    func toJSON() -> Dictionary<String, String> {
+        return [
+            "user_id": self.name,
+            "text": self.description
+        ]
+    }
 }
