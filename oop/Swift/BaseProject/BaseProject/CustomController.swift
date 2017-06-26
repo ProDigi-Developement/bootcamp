@@ -6,6 +6,9 @@
 //  Copyright © 2017 ProDigi. All rights reserved.
 //
 
+typealias SuccessScenario = () -> Void
+typealias FailScenario = (String) -> Void
+
 final class CustomController {
     public private(set) var list: [CustomObject]
     public static let sharedInstance = CustomController()
@@ -13,7 +16,9 @@ final class CustomController {
     
     private init() {
         self.list = [CustomObject]()
-
+    }
+    
+    public func fetchListInfo(onSuccess: @escaping SuccessScenario, onFail: @escaping FailScenario) {
         // Stub code to fill the list
         let objectOne = CustomObject(withName: "One")
         let objectTwo = CustomObject(withName: "Two")
@@ -27,5 +32,11 @@ final class CustomController {
         self.list.append(objectThree)
         self.list.append(objectFour)
         self.list.append(objectFive)
+        
+        if self.list.count > 0 {
+            onSuccess()
+        } else {
+            onFail("Error on fetch user list.")
+        }
     }
 }

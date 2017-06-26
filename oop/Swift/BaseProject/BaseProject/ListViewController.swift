@@ -17,6 +17,23 @@ class ListViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        // Fetch Users information using the controller
+        CustomController.sharedInstance.fetchListInfo(onSuccess: onSuccessScenario, onFail: onFailScenario)
+    }
+    
+    // This method will be called when fetchListInfo from Controller is finished with success scenario
+    private func onSuccessScenario() {
+        // Call the main thread to do the next line code to avoid any thread conflict
+        DispatchQueue.main.async {
+            // Force reload the table view data
+            self.tableView.reloadData()
+        }
+    }
+    
+    // This method will be called when fetchListInfo from Controller is finished with fail scenario
+    private func onFailScenario(errorMessage: String) {
+        print(errorMessage)
     }
 }
 
