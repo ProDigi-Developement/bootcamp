@@ -42,9 +42,10 @@ class UserDetailsViewController: UIViewController {
             return
         }
         
-        let userEditted = User(withName: name, description: description)
+        self.userSelected?.name = name
+        self.userSelected?.description = description
 
-        UserController.shared.updateUser(userEditted, onSuccess: updatedSuccessfully, onFail: updatedFailed)
+        UserController.shared.updateUser(self.userSelected!, onSuccess: updatedSuccessfully, onFail: updatedFailed)
     }
     
     // This method will be called when the controller get the success scenario on update client call

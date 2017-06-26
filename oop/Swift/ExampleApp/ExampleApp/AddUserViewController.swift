@@ -18,7 +18,7 @@ class AddUserViewController: UIViewController {
 
     @IBAction func addButtonTouchUpInside(_ sender: Any) {
         if validateInput() {
-            let newUser = User(withName: self.textFieldName.text!, description: self.textFieldDescription.text!)
+            let newUser = User(withName: self.textFieldName.text!, description: self.textFieldDescription.text!, objectId: "")
             UserController.shared.addUser(newUser, onSuccess: addSuccess, onFail: addFail)
         }
     }

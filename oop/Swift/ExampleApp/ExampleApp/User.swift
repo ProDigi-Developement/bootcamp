@@ -7,10 +7,12 @@
 //
 
 public class User {
-    public let name: String
-    public let description: String
+    public let objectId: String
+    public var name: String
+    public var description: String
     
-    public init(withName name: String, description: String) {
+    public init(withName name: String, description: String, objectId: String) {
+        self.objectId = objectId
         self.name = name
         self.description = description
     }
