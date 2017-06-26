@@ -35,7 +35,7 @@ class UserDetailsViewController: UIViewController {
             return
         }
         
-        let userEditted = User(withName: name)
+        let userEditted = User(withName: name, description: "")
 
         UserController.shared.updateUser(userEditted, onSuccess: updatedSuccessfully, onFail: updatedFailed)
     }

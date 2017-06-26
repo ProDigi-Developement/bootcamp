@@ -152,7 +152,7 @@ public final class UserController {
         
         if let resultsOnJson = jsonParsed["results"].array {
             for elementFromJSON in resultsOnJson {
-                let userFromJSON = User(withName: elementFromJSON["name"]["first"].stringValue)
+                let userFromJSON = User(withName: elementFromJSON["name"]["first"].stringValue, description: "")
                 
                 tempList.append(userFromJSON)
             }
