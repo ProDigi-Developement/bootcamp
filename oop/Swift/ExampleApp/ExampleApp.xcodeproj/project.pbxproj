@@ -20,6 +20,7 @@
 		95A1BB721EF88EFF0099AFBC /* FetchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB711EF88EFF0099AFBC /* FetchDelegate.swift */; };
 		95A1BB741EF89E6B0099AFBC /* SwiftJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB731EF89E6B0099AFBC /* SwiftJSON.swift */; };
 		95A1BB761EF8A77B0099AFBC /* UserUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1BB751EF8A77B0099AFBC /* UserUITableViewCell.swift */; };
+		95E7F4EF1F018904006BB0EF /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E7F4EE1F018904006BB0EF /* AddUserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		95A1BB711EF88EFF0099AFBC /* FetchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchDelegate.swift; sourceTree = "<group>"; };
 		95A1BB731EF89E6B0099AFBC /* SwiftJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftJSON.swift; sourceTree = "<group>"; };
 		95A1BB751EF8A77B0099AFBC /* UserUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUITableViewCell.swift; sourceTree = "<group>"; };
+		95E7F4EE1F018904006BB0EF /* AddUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,10 +120,11 @@
 		95A1BB6D1EF88ADB0099AFBC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				955E3A7E1EFD9E61009DC4A8 /* Util.swift */,
-				95A1BB531EF8888E0099AFBC /* ViewController.swift */,
-				955E3A791EFD8FA6009DC4A8 /* UserDetailsViewController.swift */,
+				95E7F4F01F018908006BB0EF /* UserAdd */,
 				955E3A781EFD7736009DC4A8 /* UserCell */,
+				95E7F4ED1F0188EE006BB0EF /* UserDetails */,
+				95E7F4EC1F0188E5006BB0EF /* UserList */,
+				955E3A7E1EFD9E61009DC4A8 /* Util.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -134,6 +137,30 @@
 				95A1BB6A1EF88AB40099AFBC /* Controller */,
 			);
 			name = MVC;
+			sourceTree = "<group>";
+		};
+		95E7F4EC1F0188E5006BB0EF /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				95A1BB531EF8888E0099AFBC /* ViewController.swift */,
+			);
+			name = UserList;
+			sourceTree = "<group>";
+		};
+		95E7F4ED1F0188EE006BB0EF /* UserDetails */ = {
+			isa = PBXGroup;
+			children = (
+				955E3A791EFD8FA6009DC4A8 /* UserDetailsViewController.swift */,
+			);
+			name = UserDetails;
+			sourceTree = "<group>";
+		};
+		95E7F4F01F018908006BB0EF /* UserAdd */ = {
+			isa = PBXGroup;
+			children = (
+				95E7F4EE1F018904006BB0EF /* AddUserViewController.swift */,
+			);
+			name = UserAdd;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +242,7 @@
 				95A1BB741EF89E6B0099AFBC /* SwiftJSON.swift in Sources */,
 				95A1BB761EF8A77B0099AFBC /* UserUITableViewCell.swift in Sources */,
 				95A1BB721EF88EFF0099AFBC /* FetchDelegate.swift in Sources */,
+				95E7F4EF1F018904006BB0EF /* AddUserViewController.swift in Sources */,
 				95A1BB521EF8888E0099AFBC /* AppDelegate.swift in Sources */,
 				95A1BB671EF889840099AFBC /* UserController.swift in Sources */,
 				955E3A7A1EFD8FA6009DC4A8 /* UserDetailsViewController.swift in Sources */,
