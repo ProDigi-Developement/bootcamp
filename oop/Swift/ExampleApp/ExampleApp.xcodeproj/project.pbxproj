@@ -110,9 +110,9 @@
 		95A1BB6A1EF88AB40099AFBC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				95A1BB731EF89E6B0099AFBC /* SwiftJSON.swift */,
 				95A1BB661EF889840099AFBC /* UserController.swift */,
 				955E3A7B1EFD9AE8009DC4A8 /* Protocol */,
-				95A1BB731EF89E6B0099AFBC /* SwiftJSON.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -120,11 +120,11 @@
 		95A1BB6D1EF88ADB0099AFBC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				955E3A7E1EFD9E61009DC4A8 /* Util.swift */,
 				95E7F4F01F018908006BB0EF /* UserAdd */,
 				955E3A781EFD7736009DC4A8 /* UserCell */,
 				95E7F4ED1F0188EE006BB0EF /* UserDetails */,
 				95E7F4EC1F0188E5006BB0EF /* UserList */,
-				955E3A7E1EFD9E61009DC4A8 /* Util.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
