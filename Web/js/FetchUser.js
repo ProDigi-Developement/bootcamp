@@ -32,7 +32,9 @@ function getUsers(success, fail, numberOfUsers) {
 
 					var user = null;
 					for (index = 0; json.results.length > index; index++) {
-						user = new User(json.results[index].name.first, json.results[index].picture.thumbnail);
+						let name = json.results[index].name.first
+						let imagePath = json.results[index].picture.thumbnail
+						user = new User(name, imagePath);
 						userArray[index] = user;
 					}
 
