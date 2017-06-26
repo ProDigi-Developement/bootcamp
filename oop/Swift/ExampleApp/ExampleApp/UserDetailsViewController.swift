@@ -10,6 +10,7 @@ import UIKit
 
 class UserDetailsViewController: UIViewController {
     @IBOutlet private weak var textFieldName: UITextField!
+    @IBOutlet private weak var textFieldDescription: UITextField!
     var userSelected: User? = nil
     var allowEdit: Bool = false
     
@@ -22,20 +23,24 @@ class UserDetailsViewController: UIViewController {
         
         if let userUnwrapped = self.userSelected {
             self.textFieldName.text = userUnwrapped.name
+            self.textFieldDescription.text = userUnwrapped.description
         }
         
         self.textFieldName.isEnabled = self.allowEdit
+        self.textFieldDescription.isEnabled = self.allowEdit
     }
     
     @IBAction func OnSaveButtonTouchUpInside(_ sender: UIButton) {
         guard let name = self.textFieldName.text,
-              !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+              !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+              let description = self.textFieldDescription.text,
+              !description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         else {
-            Util.displayAlert(onView: self, withTitle: "Invalid Name", message: "Please type a valid name.")
+            Util.displayAlert(onView: self, withTitle: "Invalid Input", message: "Please type a valid value for name or description.")
             return
         }
         
-        let userEditted = User(withName: name, description: "")
+        let userEditted = User(withName: name, description: description)
 
         UserController.shared.updateUser(userEditted, onSuccess: updatedSuccessfully, onFail: updatedFailed)
     }

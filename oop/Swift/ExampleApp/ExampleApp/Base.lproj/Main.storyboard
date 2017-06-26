@@ -145,55 +145,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLK-OC-Xyf">
-                                <rect key="frame" x="62" y="214" width="250" height="40"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8NF-L2-3lc" userLabel="Fields Stack">
+                                <rect key="frame" x="16" y="104" width="343" height="106"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HIG-BF-GEq">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="40"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HIG-BF-GEq" userLabel="Name Stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5QW-MZ-pN0">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uzU-lH-FGW">
-                                                <rect key="frame" x="58" y="0.0" width="192" height="40"/>
+                                                <rect key="frame" x="58" y="0.0" width="285" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zoF-T3-KVO" userLabel="Description Stack">
+                                        <rect key="frame" x="0.0" y="38" width="343" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ver-ta-rdg">
+                                                <rect key="frame" x="0.0" y="0.0" width="92.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f64-w3-Bdk">
+                                                <rect key="frame" x="100.5" y="0.0" width="242.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0u-ty-Lob">
+                                        <rect key="frame" x="0.0" y="76" width="343" height="30"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="OnSaveButtonTouchUpInside:" destination="Ssd-J3-kJB" eventType="touchUpInside" id="Q5r-1C-nwF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="2Tt-jm-4CR"/>
-                                    <constraint firstAttribute="width" constant="250" id="5nz-f1-rwW"/>
-                                    <constraint firstAttribute="trailing" secondItem="HIG-BF-GEq" secondAttribute="trailing" id="AIC-Fj-Biv"/>
-                                    <constraint firstItem="HIG-BF-GEq" firstAttribute="top" secondItem="uLK-OC-Xyf" secondAttribute="top" id="d3i-pz-cQy"/>
-                                    <constraint firstItem="HIG-BF-GEq" firstAttribute="leading" secondItem="uLK-OC-Xyf" secondAttribute="leading" id="kLd-pd-Ytd"/>
-                                    <constraint firstAttribute="bottom" secondItem="HIG-BF-GEq" secondAttribute="bottom" id="ltf-gJ-2kb"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0u-ty-Lob">
-                                <rect key="frame" x="170" y="354" width="34" height="30"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="OnSaveButtonTouchUpInside:" destination="Ssd-J3-kJB" eventType="touchUpInside" id="Q5r-1C-nwF"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uLK-OC-Xyf" firstAttribute="top" secondItem="DXm-iM-OTp" secondAttribute="bottom" constant="150" id="0ZR-F7-jL4"/>
-                            <constraint firstItem="uLK-OC-Xyf" firstAttribute="centerX" secondItem="g7O-Rz-FeT" secondAttribute="centerX" id="1Nl-I3-as8"/>
-                            <constraint firstItem="b0u-ty-Lob" firstAttribute="top" secondItem="uLK-OC-Xyf" secondAttribute="bottom" constant="100" id="crq-8X-mOJ"/>
-                            <constraint firstItem="b0u-ty-Lob" firstAttribute="centerX" secondItem="uLK-OC-Xyf" secondAttribute="centerX" id="yxH-mL-IOj"/>
+                            <constraint firstItem="8NF-L2-3lc" firstAttribute="leading" secondItem="g7O-Rz-FeT" secondAttribute="leadingMargin" id="Nb6-ZR-vzo"/>
+                            <constraint firstItem="8NF-L2-3lc" firstAttribute="top" secondItem="DXm-iM-OTp" secondAttribute="bottom" constant="40" id="daR-8W-HvA"/>
+                            <constraint firstItem="8NF-L2-3lc" firstAttribute="centerX" secondItem="g7O-Rz-FeT" secondAttribute="centerX" id="pEq-kp-tlR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8NF-L2-3lc" secondAttribute="trailing" id="y2S-CY-JHd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="User Details" id="kFc-C0-9Ny"/>
                     <connections>
+                        <outlet property="textFieldDescription" destination="f64-w3-Bdk" id="qPx-mG-tcj"/>
                         <outlet property="textFieldName" destination="uzU-lH-FGW" id="Kad-E2-JZi"/>
                     </connections>
                 </viewController>
