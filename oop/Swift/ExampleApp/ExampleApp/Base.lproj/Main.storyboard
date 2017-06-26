@@ -105,6 +105,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahj-6B-4s0">
                                         <rect key="frame" x="0.0" y="76" width="350" height="44"/>
                                         <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="addButtonTouchUpInside:" destination="Z1z-ck-dA9" eventType="touchUpInside" id="GTC-ph-aoD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -120,6 +123,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add User" id="uzT-2Q-9hs"/>
+                    <connections>
+                        <outlet property="textFieldDescription" destination="Lj2-tE-cMK" id="M68-0H-PQi"/>
+                        <outlet property="textFieldName" destination="NzG-e0-Csf" id="Uka-iW-qGB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxL-Oq-D8U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

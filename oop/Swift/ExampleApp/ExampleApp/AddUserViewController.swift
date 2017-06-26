@@ -9,5 +9,19 @@
 import UIKit
 
 class AddUserViewController: UIViewController {
+    @IBOutlet weak var textFieldName: UITextField!
+    @IBOutlet weak var textFieldDescription: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    @IBAction func addButtonTouchUpInside(_ sender: Any) {
+        if validateInput() {
+        }
+    }
+    
+    private func validateInput() -> Bool {
+        return true
+    }
 }
