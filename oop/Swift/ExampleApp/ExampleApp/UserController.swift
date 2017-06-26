@@ -15,6 +15,9 @@ public final class UserController {
     private typealias FetchSuccessScenario = (Data) -> Void
     private typealias FetchFailScenario = (String) -> Void
     
+    private let baseUrl: String = "https://prodigi-bootcamp.firebaseio.com/oUhddrCgG9fRxdixzIEySnf4Gsg1/messages"
+    private let token: String = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjUwOTQ5NTk0NDUyOGNlMWE2YjhjZDljNzVlMTA1YjkxOGY1NjMwYmQifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcHJvZGlnaS1ib290Y2FtcCIsImF1ZCI6InByb2RpZ2ktYm9vdGNhbXAiLCJhdXRoX3RpbWUiOjE0OTg1MDc2MDgsInVzZXJfaWQiOiJvVWhkZHJDZ0c5ZlJ4ZGl4eklFeVNuZjRHc2cxIiwic3ViIjoib1VoZGRyQ2dHOWZSeGRpeHpJRXlTbmY0R3NnMSIsImlhdCI6MTQ5ODUwNzYwOCwiZXhwIjoxNDk4NTExMjA4LCJlbWFpbCI6Imtpb2JyZW5vK2ZpcmViYXNlQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJraW9icmVubytmaXJlYmFzZUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.Sh1wVR38QRhwhE1mE70Lq4PriomyHXUqhMOpFcp8UCahace5gxmqp1ayx9kia-Mu2vrN9I9f_zy6pYWnPpiD8iH4rHiBlscalbNPEoDpWEfi6MJSWMCB6TlAhBGW0-hEUCRLb4xWxlhFQ8NNvUHE1uAPiuwPJ61HHaahkj9_ST9273ZT3xBcD9u6jZzEsx350SK-sEn9dMa5H06UiLFPfZdzqnaYY7g-nA6tEQkPnpSice8_omhLInBGZxcFCTu6bGqSh5_RE0r-mL6VLTZk1C4iaazch41Ud2jfILNbTbYBXT0n4Pwec8qy2rcCvvG2i8AI15o5RG59hEZJh-186w"
+    
     public private(set) var userList: [User]
     public var delegate: FetchDelegate? = nil
     
@@ -29,80 +32,83 @@ public final class UserController {
     }
     
     public func fetchUsers() {
-        guard let url = URL(string: "https://prodigi-bootcamp.firebaseio.com/oUhddrCgG9fRxdixzIEySnf4Gsg1/messages.json?auth=eyJhbGciOiJSUzI1NiIsImtpZCI6IjUwOTQ5NTk0NDUyOGNlMWE2YjhjZDljNzVlMTA1YjkxOGY1NjMwYmQifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcHJvZGlnaS1ib290Y2FtcCIsImF1ZCI6InByb2RpZ2ktYm9vdGNhbXAiLCJhdXRoX3RpbWUiOjE0OTg1MDM5MjAsInVzZXJfaWQiOiJvVWhkZHJDZ0c5ZlJ4ZGl4eklFeVNuZjRHc2cxIiwic3ViIjoib1VoZGRyQ2dHOWZSeGRpeHpJRXlTbmY0R3NnMSIsImlhdCI6MTQ5ODUwMzkyMCwiZXhwIjoxNDk4NTA3NTIwLCJlbWFpbCI6Imtpb2JyZW5vK2ZpcmViYXNlQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJraW9icmVubytmaXJlYmFzZUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.b7zqlnjcwC8d2ev46q_4cISuTmwH9BTclmvSCtkpK5gGZhk-R4m72rj5CDP8md3EhMkacsb3tGFJjC1y-XGplrlhPK8uKr22z6sI-xIkbPUz7otJYXXsXfIOn1hEHqc8i43Xtd15ZgH0OAJ8hAKCGwGIMd7dCf7PBQq-Li580iXQl8wz3hoddFaP4K0Rkhn_wBvbATarVqt7tnYiTtb65GHlhD8_tV4mwocKZlhGj5zDSsmIpbL3UHMEvtAXUEqRiMC8YfI_FcI20tgBQ94VMRyc51HHooR0tJlwddP6dGdrX7_ZW8vjjIRe4kfz6OwwIUFCdwP9gdCO1glsrh2N_Q") else {
-            self.delegate?.fetchUsersFailed(errorMessage: "Failed to parse the URL.")
-            return
+        if let url = getUrl() {
+            self.userList = [User]()
+            
+            var requestUrl = URLRequest(url: url)
+            requestUrl.httpMethod = "GET"
+            
+            self.fetch(url: requestUrl, onSuccessScenario: onFetchUserSuccess, onFailScenario: onFetchUserFail)
+        } else {
+            self.delegate?.fetchUsersFailed(errorMessage: "Not possible to create the URL object")
         }
-        
-        self.userList = [User]()
-        
-        var requestUrl = URLRequest(url: url)
-        requestUrl.httpMethod = "GET"
-        
-        self.fetch(url: requestUrl, onSuccessScenario: onFetchUserSuccess, onFailScenario: onFetchUserFail)
     }
     
     public func addUser(_ user: User, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
-        guard let url = URL(string: "https://prodigi-bootcamp.firebaseio.com/oUhddrCgG9fRxdixzIEySnf4Gsg1/messages.json?auth=eyJhbGciOiJSUzI1NiIsImtpZCI6IjUwOTQ5NTk0NDUyOGNlMWE2YjhjZDljNzVlMTA1YjkxOGY1NjMwYmQifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcHJvZGlnaS1ib290Y2FtcCIsImF1ZCI6InByb2RpZ2ktYm9vdGNhbXAiLCJhdXRoX3RpbWUiOjE0OTg1MDM5MjAsInVzZXJfaWQiOiJvVWhkZHJDZ0c5ZlJ4ZGl4eklFeVNuZjRHc2cxIiwic3ViIjoib1VoZGRyQ2dHOWZSeGRpeHpJRXlTbmY0R3NnMSIsImlhdCI6MTQ5ODUwMzkyMCwiZXhwIjoxNDk4NTA3NTIwLCJlbWFpbCI6Imtpb2JyZW5vK2ZpcmViYXNlQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJraW9icmVubytmaXJlYmFzZUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.b7zqlnjcwC8d2ev46q_4cISuTmwH9BTclmvSCtkpK5gGZhk-R4m72rj5CDP8md3EhMkacsb3tGFJjC1y-XGplrlhPK8uKr22z6sI-xIkbPUz7otJYXXsXfIOn1hEHqc8i43Xtd15ZgH0OAJ8hAKCGwGIMd7dCf7PBQq-Li580iXQl8wz3hoddFaP4K0Rkhn_wBvbATarVqt7tnYiTtb65GHlhD8_tV4mwocKZlhGj5zDSsmIpbL3UHMEvtAXUEqRiMC8YfI_FcI20tgBQ94VMRyc51HHooR0tJlwddP6dGdrX7_ZW8vjjIRe4kfz6OwwIUFCdwP9gdCO1glsrh2N_Q") else {
-            self.delegate?.fetchUsersFailed(errorMessage: "Failed to parse the URL.")
-            return
-        }
-        
-        let jsonData = try! JSON(user.toJSON()).rawData()
-
-        var requestUrl = URLRequest(url: url)
-        requestUrl.httpMethod = "POST"
-        requestUrl.httpBody = jsonData
-        
-        requestUrl.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        self.fetch(url: requestUrl,
-                   onSuccessScenario: { data in
+        if let url = getUrl() {
+            let jsonData = try! JSON(user.toJSON()).rawData()
+            
+            var requestUrl = URLRequest(url: url)
+            requestUrl.httpMethod = "POST"
+            requestUrl.httpBody = jsonData
+            
+            requestUrl.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            self.fetch(url: requestUrl,
+                       onSuccessScenario: { data in
                         self.fetchUsers()
                         
                         onSuccess()
-        },
-                   onFailScenario: { errorMessage in
-                    onFail(errorMessage)
-        })
+            },
+                       onFailScenario: { errorMessage in
+                        onFail(errorMessage)
+            })
+        } else {
+            onFail("Not possible to create the URL object")
+        }
     }
     
     public func updateUser(_ user: User, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
-        // TODO: implement the logic to update user object
-        guard let url = URL(string: "https://randomuser.me/api/?results=20") else {
-            onFail("Failed to parse the URL.")
-            return
-        }
-        
-        var requestUrl = URLRequest(url: url)
-        requestUrl.httpMethod = "PUT"
-        
-        self.fetch(url: requestUrl,
-                   onSuccessScenario: { data in
+        if let url = getUrl() {
+            let jsonData = try! JSON([
+                user.objectId: [
+                    "user_id": user.name,
+                    "text": user.description
+                ]
+                ]).rawData()
+            
+            var requestUrl = URLRequest(url: url)
+            requestUrl.httpMethod = "PATCH"
+            requestUrl.httpBody = jsonData
+            
+            self.fetch(url: requestUrl,
+                       onSuccessScenario: { data in
                         self.fetchUsers()
                         
                         onSuccess()
-        },
-                   onFailScenario: { errorMessage in
-                    onFail(errorMessage)
-        })
+            },
+                       onFailScenario: { errorMessage in
+                        onFail(errorMessage)
+            })
+        } else {
+            onFail("Not possible to create the URL object")
+        }
     }
     
     public func deleteUser(_ user: User, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
-        // TODO: implement the logic to delete user object
-        guard let url = URL(string: "https://randomuser.me/api/?results=20") else {
-            self.delegate?.fetchUsersFailed(errorMessage: "Failed to parse the URL.")
+        guard let url = URL(string: String(format: "%@/%@.json?auth=%@", self.baseUrl, user.objectId, self.token)) else {
+            onFail("Not possible to create the URL object")
             return
         }
-        
+
         var requestUrl = URLRequest(url: url)
         requestUrl.httpMethod = "DELETE"
         
         self.fetch(url: requestUrl,
                    onSuccessScenario: { data in
-                        self.fetchUsers()
-                        
-                        onSuccess()
+                    self.fetchUsers()
+                    
+                    onSuccess()
         },
                    onFailScenario: { errorMessage in
                     onFail(errorMessage)
@@ -128,6 +134,15 @@ public final class UserController {
     }
     
     // MARK: Generic methods
+    
+    private func getUrl() -> URL? {
+        guard let url = URL(string: String(format: "%@.json?auth=%@", self.baseUrl, self.token)) else {
+            print("Not capable to create the URL")
+            return nil
+        }
+
+        return url
+    }
     
     private func fetch(url: URLRequest, onSuccessScenario onSuccess: @escaping FetchSuccessScenario, onFailScenario onFail: @escaping FetchFailScenario) {
         let config = URLSessionConfiguration.default
