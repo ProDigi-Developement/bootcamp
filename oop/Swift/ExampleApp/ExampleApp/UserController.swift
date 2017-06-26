@@ -48,8 +48,13 @@ public final class UserController {
             return
         }
         
+        let jsonData = try! JSON(user.toJSON()).rawData()
+
         var requestUrl = URLRequest(url: url)
         requestUrl.httpMethod = "POST"
+        requestUrl.httpBody = jsonData
+        
+        requestUrl.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         self.fetch(url: requestUrl,
                    onSuccessScenario: { data in
