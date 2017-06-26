@@ -9,6 +9,7 @@
 final class CustomController {
     public private(set) var list: [CustomObject]
     public static let sharedInstance = CustomController()
+    public var selectedUser: CustomObject? = nil
     
     private init() {
         self.list = [CustomObject]()
