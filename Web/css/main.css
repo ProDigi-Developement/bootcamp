@@ -1,0 +1,9 @@
+body {text-align: center;}
+
+button {position: absolute; top: auto;}
+
+ol {list-style-type: none; margin: 0px; -text-align: center;}
+ol li {padding: 10px; display: inline-block;}
+label {font-size: 14px}
+
+img {width: 110px; height: 110px;}

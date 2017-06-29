@@ -1,0 +1,60 @@
+<!-- view -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Bootcamp Example</title>
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    	<link href="css/main.css" rel="stylesheet">
+        <!-- Javascripts -->
+    	<script src="js/UserController.js"></script>
+    	<script src="js/UserObject.js"></script>
+        <script src="js/FetchUser.js"></script>
+
+        <script>
+    		function success(userList) {
+    			console.log('View: function success');
+
+    			 for (i = 0; i < userList.length; i++) {
+    				 displayUser(userList[i]);
+    			 }
+    		}
+
+    		function fail(errorMessage) {
+                console.log('View: function fail');
+    			alert(errorMessage);
+    		}
+
+    		function onButtonClick() {
+    			loadMoreExcercises();
+    		}
+
+            function loadUsers() {
+                console.log("Load button pressed");
+                fetchUsers(success, fail);
+            }
+
+            function displayUser(user) {
+            	var newLi = document.createElement('li');
+            	var img = document.createElement('img');
+            	img.setAttribute("src", user.getImage());
+            	newLi.appendChild(img);
+
+            	var textNode = document.createTextNode(user.getName());
+            	newLi.appendChild(textNode);
+
+            	document.getElementById("exampleList").appendChild(newLi);
+            }
+        </script>
+    </head>
+
+    <body>
+    	<div id="baseDiv">
+            <button type="button" onclick="loadUsers();">Load Users</button>
+            <br />
+            <ol id="exampleList">
+            </ol>
+    	</div>
+    </body>
+</html>
