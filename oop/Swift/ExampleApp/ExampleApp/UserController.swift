@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SystemConfiguration
 
 public final class UserController {
     public private(set) var userList: [User]
