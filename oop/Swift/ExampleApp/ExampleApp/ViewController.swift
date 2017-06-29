@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         self.tableView.dataSource = self
         
         // MARK: Setup the UserController
-//        UserController.shared.delegate = self
+        UserController.shared.delegate = self
         
         UserController.shared.fetchUsers()
     }
