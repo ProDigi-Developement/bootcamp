@@ -83,7 +83,8 @@ final class CustomController {
         
         if let resultsOnJson = jsonParsed["results"].array {
             for elementFromJSON in resultsOnJson {
-                let userFromJSON = CustomObject(withName: elementFromJSON["name"]["first"].stringValue)
+                let firstName = elementFromJSON["name"]["first"].stringValue
+                let userFromJSON = CustomObject(withName: firstName)
                 
                 tempList.append(userFromJSON)
             }
