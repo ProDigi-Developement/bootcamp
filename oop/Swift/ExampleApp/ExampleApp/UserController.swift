@@ -9,6 +9,9 @@
 import Foundation
 import SystemConfiguration
 
+public typealias ControllerSuccessScenario = () -> Void
+public typealias ControllerFailScenario = (String) -> Void
+
 public final class UserController {
     public private(set) var userList: [User]
     public var delegate: FetchDelegate? = nil
@@ -41,6 +44,10 @@ public final class UserController {
             return
         }
         
+//        var request = URLRequest(url: urlRequest)
+//        request.httpMethod = ""
+//        request.httpBody = Data()
+        
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
@@ -68,8 +75,15 @@ public final class UserController {
     
     // MARK: Add user on backend (Firebase)
     
-    public func addUser(_ user: User) {
+    public func addUser(_ user: User, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
         // TODO: Implement the logic
+        let random = Int(arc4random_uniform(5))
+
+        if random % 2 == 0 {
+            onSuccess()
+        } else {
+            onFail("Generic error")
+        }
     }
     
     // MARK: Update user on backend (Firebase)

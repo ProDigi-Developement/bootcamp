@@ -19,7 +19,7 @@ class AddUserViewController: UIViewController {
     @IBAction func addButtonTouchUpInside(_ sender: Any) {
         if validateInput() {
             let newUser = User(withName: self.textFieldName.text!, description: self.textFieldDescription.text!, objectId: "")
-//            UserController.shared.addUser(newUser, onSuccess: addSuccess, onFail: addFail)
+            UserController.shared.addUser(newUser, onSuccess: addSuccess, onFail: addFail)
         }
     }
     
@@ -29,11 +29,11 @@ class AddUserViewController: UIViewController {
     
     // MARK: Callbacks for add new user
     
-//    private func addSuccess() {
-//        Util.displayAlert(onView: self, withTitle: "Success", message: "New user added successfully.")
-//    }
-//    
-//    private func addFail(errorMessage: String) {
-//        Util.displayAlert(onView: self, withTitle: "Fail", message: "New user not added.")
-//    }
+    private func addSuccess() {
+        Util.displayAlert(onView: self, withTitle: "Success", message: "New user added successfully.")
+    }
+    
+    private func addFail(errorMessage: String) {
+        Util.displayAlert(onView: self, withTitle: "Fail", message: "New user not added.")
+    }
 }
