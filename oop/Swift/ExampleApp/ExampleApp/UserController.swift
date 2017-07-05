@@ -130,8 +130,43 @@ public final class UserController {
     
     // MARK: Delete user on backend (Firebase)
     
-    public func deleteUser(_ user: User) {
-        // TODO: Implement the logic
+    public func deleteUser(_ user: User, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
+        let stringFormat: String = "https://prodigi-bootcamp.firebaseio.com/BEN2ZlzXbpbQZviOuXKvQdybC1v1/messages/%@.json?auth=eyJhbGciOiJSUzI1NiIsImtpZCI6IjJiYjY5NTczZjAzMDUyOTdkNDc0MDQ1OWE0YzA2N2Q1NGI1YmRmMjkifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcHJvZGlnaS1ib290Y2FtcCIsImF1ZCI6InByb2RpZ2ktYm9vdGNhbXAiLCJhdXRoX3RpbWUiOjE0OTkyOTU1ODksInVzZXJfaWQiOiJCRU4yWmx6WGJwYlFadmlPdVhLdlFkeWJDMXYxIiwic3ViIjoiQkVOMlpselhicGJRWnZpT3VYS3ZRZHliQzF2MSIsImlhdCI6MTQ5OTI5NTU5MCwiZXhwIjoxNDk5Mjk5MTkwLCJlbWFpbCI6Imtpb2JyZW5vK3Byb2RpZ2lAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImtpb2JyZW5vK3Byb2RpZ2lAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.XipTw72pkB8vQy9KrbDp5nbkl1bqZpp-zUaPANJr6R2AxlL-q6-zYqAcPtwNk1LwnWLeorgnd4M4QMMowNNS50Qi2ia4KPechdbsUuIIjdNbergKqD-qfPR2oWU7L5HWk-sqM2t5Mzql-rC2LITP6fVD5K91GLVSPcuvjk5fO3-WzSTW8Sg-pk642QTiBO8HX66atq7BG8HE3boHFUJkBGI7COSMIpTum7B3U5z8J0QIGF3b9YuBDLFmEPu156QEJoh3Xm24KYo9Izr1EqCSt6zEpXOHhBbePALqHSrSfClcQpe2hJpI3orS1XVVrjT-ZITvUr8zh2w1MhOkZhgeeQ"
+        
+        let url: String = String(format: stringFormat, user.objectId)
+        
+        guard let urlRequest = URL(string: url) else {
+            print("Not possible to create the URL object")
+            return
+        }
+        
+        var request = URLRequest(url: urlRequest)
+        request.httpMethod = "DELETE"
+        
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
+            if let errorUnwrapped = error {
+                onFail(errorUnwrapped.localizedDescription)
+            } else {
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    onFail("Failed to parse HTTPURLResponse object")
+                    return
+                }
+                
+                guard httpResponse.statusCode == 200 else {
+                    onFail("Failed to receive status code 200. Received: \(httpResponse.statusCode)")
+                    return
+                }
+                
+                self.fetchUsers()
+                
+                onSuccess()
+            }
+        })
+        
+        task.resume()
     }
     
     // MARK: Private Methods
