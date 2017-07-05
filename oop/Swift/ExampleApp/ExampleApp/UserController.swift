@@ -91,31 +91,7 @@ public final class UserController {
     
         request.httpBody = jsonData
         
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        
-        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let errorUnwrapped = error {
-                onFail(errorUnwrapped.localizedDescription)
-            } else {
-                guard let httpResponse = response as? HTTPURLResponse else {
-                    onFail("Failed to parse HTTPURLResponse object")
-                    return
-                }
-                
-                guard httpResponse.statusCode == 200 else {
-                    onFail("Failed to receive status code 200. Received: \(httpResponse.statusCode)")
-                    return
-                }
-                
-                
-                self.fetchUsers()
-                
-                onSuccess()
-            }
-        })
-        
-        task.resume()
+        self.fetch(request: request, onSuccess: onSuccess, onFail: onFail)
     }
     
     // MARK: Update user on backend (Firebase)
@@ -139,6 +115,10 @@ public final class UserController {
         var request = URLRequest(url: urlRequest)
         request.httpMethod = "DELETE"
         
+        self.fetch(request: request, onSuccess: onSuccess, onFail: onFail)
+    }
+    
+    private func fetch(request: URLRequest, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
