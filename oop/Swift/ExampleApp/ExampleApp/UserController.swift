@@ -13,9 +13,13 @@ public typealias ControllerSuccessScenario = () -> Void
 public typealias ControllerFailScenario = (String) -> Void
 
 public final class UserController {
+    public typealias InternalControllerSuccessScenario = (Data) -> Void
+    public typealias InternalControllerFailScenario = (String) -> Void
+
     public private(set) var userList: [User]
     public var delegate: FetchDelegate? = nil
-    private var token: String = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjJiYjY5NTczZjAzMDUyOTdkNDc0MDQ1OWE0YzA2N2Q1NGI1YmRmMjkifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcHJvZGlnaS1ib290Y2FtcCIsImF1ZCI6InByb2RpZ2ktYm9vdGNhbXAiLCJhdXRoX3RpbWUiOjE0OTkyOTU1ODksInVzZXJfaWQiOiJCRU4yWmx6WGJwYlFadmlPdVhLdlFkeWJDMXYxIiwic3ViIjoiQkVOMlpselhicGJRWnZpT3VYS3ZRZHliQzF2MSIsImlhdCI6MTQ5OTI5NTU5MCwiZXhwIjoxNDk5Mjk5MTkwLCJlbWFpbCI6Imtpb2JyZW5vK3Byb2RpZ2lAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImtpb2JyZW5vK3Byb2RpZ2lAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.XipTw72pkB8vQy9KrbDp5nbkl1bqZpp-zUaPANJr6R2AxlL-q6-zYqAcPtwNk1LwnWLeorgnd4M4QMMowNNS50Qi2ia4KPechdbsUuIIjdNbergKqD-qfPR2oWU7L5HWk-sqM2t5Mzql-rC2LITP6fVD5K91GLVSPcuvjk5fO3-WzSTW8Sg-pk642QTiBO8HX66atq7BG8HE3boHFUJkBGI7COSMIpTum7B3U5z8J0QIGF3b9YuBDLFmEPu156QEJoh3Xm24KYo9Izr1EqCSt6zEpXOHhBbePALqHSrSfClcQpe2hJpI3orS1XVVrjT-ZITvUr8zh2w1MhOkZhgeeQ"
+    
+    private var token: String = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjJiYjY5NTczZjAzMDUyOTdkNDc0MDQ1OWE0YzA2N2Q1NGI1YmRmMjkifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcHJvZGlnaS1ib290Y2FtcCIsImF1ZCI6InByb2RpZ2ktYm9vdGNhbXAiLCJhdXRoX3RpbWUiOjE0OTkyOTk1NTUsInVzZXJfaWQiOiJCRU4yWmx6WGJwYlFadmlPdVhLdlFkeWJDMXYxIiwic3ViIjoiQkVOMlpselhicGJRWnZpT3VYS3ZRZHliQzF2MSIsImlhdCI6MTQ5OTI5OTU1NSwiZXhwIjoxNDk5MzAzMTU1LCJlbWFpbCI6Imtpb2JyZW5vK3Byb2RpZ2lAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImtpb2JyZW5vK3Byb2RpZ2lAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.rTPmvODQg_jFVFMtFmGGZI2FMLgiPviG3XwpAP9g1WDDChqma_iQ6i_Oho5okLNrNM19RRs3lMnn9WFbRa5vWBLlsw65TqIB8NtkzBXP1KR1m0iWY3PgXCtBUgk6KgbuI9QqfPFRBcpnPEk34irwD8MwsC9gfbt6rgyQh0ebiMAldeTCObZur2lxha6KwEqAe51OYzFwMz2ioBaEzWQfnNKAw0ZxmI5IP3kqdWfhysGR_nvM0qedSlxw_YytQIdas44b9wwtj-EGYFeY_U-lekXdbLeCyF6VmOfWbFzosMiwibuB9Do3Qdm44mCQXSVkOFKffG7e4IvxczpReH2N-Q"
     
     // MARK: Singleton
     
@@ -45,29 +49,48 @@ public final class UserController {
             return
         }
         
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
+        self.fetch(request: URLRequest(url: urlRequest), onSuccess: onFetchUsersSuccess, onFail: onFetchUsersFail)
         
-        let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
-            if let errorUnwrapped = error {
-                print("🚨 ERROR: \(errorUnwrapped.localizedDescription)")
-            } else {
-                if let dataUnwrapped = data {
-                    // TODO: Convert data to Custom Object
-                    do {
-                        self.userList = try self.convertToUsers(withData: dataUnwrapped)
-                        
-                        self.delegate?.fetchedAllUsers()
-                    } catch {
-                        print("🚨 Error from convert User.")
-                    }
-                } else {
-                    print("Data is nil/NULL")
-                }
-            }
-        })
+//        let config = URLSessionConfiguration.default
+//        let session = URLSession(configuration: config)
         
-        task.resume()
+//        let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
+//            if let errorUnwrapped = error {
+//                print("🚨 ERROR: \(errorUnwrapped.localizedDescription)")
+//            } else {
+//                if let dataUnwrapped = data {
+//                    // TODO: Convert data to Custom Object
+//                    do {
+//                        self.userList = try self.convertToUsers(withData: dataUnwrapped)
+//                        
+//                        self.delegate?.fetchedAllUsers()
+//                    } catch {
+//                        print("🚨 Error from convert User.")
+//                    }
+//                } else {
+//                    print("Data is nil/NULL")
+//                }
+//            }
+//        })
+//        
+//        task.resume()
+    }
+    
+    private func onFetchUsersSuccess(data: Data) {
+        // TODO: convert data to users and then fill userList
+        
+        do {
+            self.userList = try self.convertToUsers(withData: data)
+
+            self.delegate?.fetchedAllUsers()
+        } catch {
+            print("🚨 Error from convert User.")
+//            onFetchUsersFail(error: error.localizedDescription)
+        }
+    }
+    
+    private func onFetchUsersFail(error: String) {
+        self.delegate?.fetchUsersFailed(errorMessage: error)
     }
     
     // MARK: Add user on backend (Firebase)
@@ -91,7 +114,11 @@ public final class UserController {
     
         request.httpBody = jsonData
         
-        self.fetch(request: request, onSuccess: onSuccess, onFail: onFail)
+        self.fetch(request: request,
+                   onSuccess: { data in
+                    onSuccess()
+        },
+                   onFail: onFail)
     }
     
     // MARK: Update user on backend (Firebase)
@@ -115,10 +142,13 @@ public final class UserController {
         var request = URLRequest(url: urlRequest)
         request.httpMethod = "DELETE"
         
-        self.fetch(request: request, onSuccess: onSuccess, onFail: onFail)
+        self.fetch(request: request,
+                   onSuccess: { data in
+                        onSuccess()
+        }, onFail: onFail)
     }
     
-    private func fetch(request: URLRequest, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
+    private func fetch(request: URLRequest, onSuccess: @escaping InternalControllerSuccessScenario, onFail: @escaping InternalControllerFailScenario) {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
@@ -136,9 +166,12 @@ public final class UserController {
                     return
                 }
                 
-                self.fetchUsers()
-                
-                onSuccess()
+//                self.fetchUsers()
+                if let dataUnwrapped = data {
+                    onSuccess(dataUnwrapped)
+                } else {
+                    onFail("Data is nil")
+                }
             }
         })
         
