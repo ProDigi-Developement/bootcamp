@@ -48,7 +48,7 @@ class UserDetailsViewController: UIViewController {
         UserController.shared.updateUser(self.userSelected!, onSuccess: updatedSuccessfully, onFail: updatedFailed)
     }
     
-//    // This method will be called when the controller get the success scenario on update client call
+    // This method will be called when the controller get the success scenario on update client call
     private func updatedSuccessfully() {
         Util.displayAlert(onView: self, withTitle: "Success ✅", message: "User udpated successly.")
     }
