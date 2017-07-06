@@ -15,7 +15,7 @@ public final class UserController {
     private typealias FetchSuccessScenario = (Data) -> Void
     private typealias FetchFailScenario = (String) -> Void
     
-    private let baseUrl: String = "https://prodigi-bootcamp.firebaseio.com/oUhddrCgG9fRxdixzIEySnf4Gsg1/messages"
+    private let baseUrl: String = "https://prodigi-bootcamp.firebaseio.com/BEN2ZlzXbpbQZviOuXKvQdybC1v1/messages"
     private let token: String = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQyZTJkNTNmY2JlYjM1MmFmNGY5MDI5MjI5MWU2MTg4YWYwYTFmMGUifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcHJvZGlnaS1ib290Y2FtcCIsImF1ZCI6InByb2RpZ2ktYm9vdGNhbXAiLCJhdXRoX3RpbWUiOjE0OTg3NzQyMzUsInVzZXJfaWQiOiJvVWhkZHJDZ0c5ZlJ4ZGl4eklFeVNuZjRHc2cxIiwic3ViIjoib1VoZGRyQ2dHOWZSeGRpeHpJRXlTbmY0R3NnMSIsImlhdCI6MTQ5ODc3NDIzNSwiZXhwIjoxNDk4Nzc3ODM1LCJlbWFpbCI6Imtpb2JyZW5vK2ZpcmViYXNlQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJraW9icmVubytmaXJlYmFzZUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.KOv4ostwuWjaGhPFWfpiZAdHVZtA7Zm0JYt7Qks_9LTh23QlgXp5y6PN4kAcEJQ2BjkN1q88fPOQihjPAqV5UmfbaOp__ojPWJi2Anw3ddShuo7cFvQ7vBG_ay19eeUVv9VxEZ72zhuM7XlF8pZJJg5M6hqqkZGMrG0OMoUPzVOY-nl_EKkYFiWKiRgLZp9tL7E-6-Gh0iwzmKwUJXUQ5X8D9JnWLI2mXkt5cGajZ47L2osn0aoOAYliJiHKozcnBlISFe4OCu6dIGY2sinsxD0SpYJAh3gVRuo-XT2pODRJLCXufruszjKkMMpoCBWvM7_5ubG139LhyHsVudqmcA"
     
     public private(set) var userList: [User]
