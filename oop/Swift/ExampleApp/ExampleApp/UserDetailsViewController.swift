@@ -45,16 +45,16 @@ class UserDetailsViewController: UIViewController {
         self.userSelected?.name = name
         self.userSelected?.description = description
 
-//        UserController.shared.updateUser(self.userSelected!, onSuccess: updatedSuccessfully, onFail: updatedFailed)
+        UserController.shared.updateUser(self.userSelected!, onSuccess: updatedSuccessfully, onFail: updatedFailed)
     }
     
 //    // This method will be called when the controller get the success scenario on update client call
-//    private func updatedSuccessfully() {
-//        Util.displayAlert(onView: self, withTitle: "Success ✅", message: "User udpated successly.")
-//    }
-//    
-//    // This method will be called when the controller get any error on update client call
-//    private func updatedFailed(errorMessage msg: String) {
-//        Util.displayAlert(onView: self, withTitle: "Error 🙃", message: msg)
-//    }
+    private func updatedSuccessfully() {
+        Util.displayAlert(onView: self, withTitle: "Success ✅", message: "User udpated successly.")
+    }
+    
+    // This method will be called when the controller get any error on update client call
+    private func updatedFailed(errorMessage msg: String) {
+        Util.displayAlert(onView: self, withTitle: "Error 🙃", message: msg)
+    }
 }

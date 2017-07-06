@@ -50,30 +50,6 @@ public final class UserController {
         }
         
         self.fetch(request: URLRequest(url: urlRequest), onSuccess: onFetchUsersSuccess, onFail: onFetchUsersFail)
-        
-//        let config = URLSessionConfiguration.default
-//        let session = URLSession(configuration: config)
-        
-//        let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
-//            if let errorUnwrapped = error {
-//                print("🚨 ERROR: \(errorUnwrapped.localizedDescription)")
-//            } else {
-//                if let dataUnwrapped = data {
-//                    // TODO: Convert data to Custom Object
-//                    do {
-//                        self.userList = try self.convertToUsers(withData: dataUnwrapped)
-//                        
-//                        self.delegate?.fetchedAllUsers()
-//                    } catch {
-//                        print("🚨 Error from convert User.")
-//                    }
-//                } else {
-//                    print("Data is nil/NULL")
-//                }
-//            }
-//        })
-//        
-//        task.resume()
     }
     
     private func onFetchUsersSuccess(data: Data) {
@@ -124,8 +100,34 @@ public final class UserController {
     
     // MARK: Update user on backend (Firebase)
     
-    public func updateUser(_ user: User) {
-        // TODO: Implement the logic
+    public func updateUser(_ user: User, onSuccess: @escaping ControllerSuccessScenario, onFail: @escaping ControllerFailScenario) {
+        let url: String = "https://prodigi-bootcamp.firebaseio.com/BEN2ZlzXbpbQZviOuXKvQdybC1v1/messages.json?auth=\(self.token)"
+        
+        guard let urlRequest = URL(string: url) else {
+            print("Not possible to create the URL object")
+            return
+        }
+        
+        var request = URLRequest(url: urlRequest)
+        request.httpMethod = "PATCH"
+        
+        let jsonObject = JSON([user.objectId: [
+                "user_id": user.name,
+                "text": user.description
+                ]
+            ])
+        let jsonData = try! jsonObject.rawData()
+        
+        //        let jsonData2 = try! JSONSerialization.jsonObject(with: user.toJSON(), options: []) as? [String: Any]
+        
+        request.httpBody = jsonData
+        
+        self.fetch(request: request,
+                   onSuccess: { data in
+                    self.fetchUsers()
+                    onSuccess()
+        },
+                   onFail: onFail)
     }
     
     // MARK: Delete user on backend (Firebase)
