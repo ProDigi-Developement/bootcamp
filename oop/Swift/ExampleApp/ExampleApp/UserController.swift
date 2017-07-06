@@ -116,6 +116,7 @@ public final class UserController {
         
         self.fetch(request: request,
                    onSuccess: { data in
+                    self.fetchUsers()
                     onSuccess()
         },
                    onFail: onFail)
@@ -144,6 +145,7 @@ public final class UserController {
         
         self.fetch(request: request,
                    onSuccess: { data in
+                        self.fetchUsers()
                         onSuccess()
         }, onFail: onFail)
     }
@@ -166,7 +168,6 @@ public final class UserController {
                     return
                 }
                 
-//                self.fetchUsers()
                 if let dataUnwrapped = data {
                     onSuccess(dataUnwrapped)
                 } else {
