@@ -101,7 +101,7 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteBtn = UITableViewRowAction(style: .destructive, title: "Delete") { _, _ in
             let user = UserController.shared.userList[indexPath.row]
-//            UserController.shared.deleteUser(user, onSuccess: self.deleteSuccess, onFail: self.deleteFailed)
+            UserController.shared.deleteUser(user, onSuccess: self.deleteSuccess, onFail: self.deleteFailed)
         }
         
         let editBtn = UITableViewRowAction(style: .normal, title: "Edit") { _, _ in
