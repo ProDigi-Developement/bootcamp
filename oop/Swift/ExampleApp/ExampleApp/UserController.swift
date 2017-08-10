@@ -62,7 +62,7 @@ public final class UserController {
         
         if let resultsInJson = jsonParsed.dictionary {
             for (key, value) in resultsInJson {
-                let userFromJSON = User(withName: value["user_id"].stringValue, description: value["text"].stringValue, objectId: key)
+                let userFromJSON = User(withName: value["user_name"].stringValue, description: value["description"].stringValue, objectId: key)
                 
                 tempList.append(userFromJSON)
             }

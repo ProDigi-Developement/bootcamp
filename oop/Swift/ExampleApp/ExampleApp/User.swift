@@ -23,8 +23,8 @@ public class User {
     
     func toJSON() -> Dictionary<String, String> {
         return [
-            "user_id": self.name,
-            "text": self.description
+            "user_name": self.name,
+            "description": self.description
         ]
     }
 }
