@@ -22,8 +22,8 @@ class DetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let selectedUser = CustomController.sharedInstance.selectedUser {
-            self.textFieldName.text = selectedUser.name
+        if let selectedUser = PersonController.sharedInstance.selectedUser {
+            self.textFieldName.text = selectedUser.fullName
         }
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 class CustomTableViewCell: UITableViewCell {
     @IBOutlet private weak var labelName: UILabel!
     
-    public func fillCell(withObject object: CustomObject) {
-        self.labelName.text = object.name
+    public func fillCell(withPerson person: Person) {
+        self.labelName.text = person.fullName
     }
 }

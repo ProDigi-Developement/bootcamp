@@ -19,7 +19,7 @@ class ListViewController: UIViewController {
         self.tableView.delegate = self
         
         // Fetch Users information using the controller
-        CustomController.sharedInstance.fetchListInfo(onSuccess: onSuccessScenario, onFail: onFailScenario)
+        PersonController.sharedInstance.fetchListInfo(onSuccess: onSuccessScenario, onFail: onFailScenario)
     }
     
     // This method will be called when fetchListInfo from Controller is finished with success scenario
@@ -45,11 +45,11 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CustomController.sharedInstance.list.count
+        return PersonController.sharedInstance.list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let customObj = CustomController.sharedInstance.list[indexPath.row]
+        let personObj = PersonController.sharedInstance.list[indexPath.row]
         let rawCell = Bundle.main.loadNibNamed("CustomTableViewCell", owner: CustomTableViewCell.self, options: nil)?.first
         
         guard let customCell = rawCell as? CustomTableViewCell else {
@@ -57,7 +57,7 @@ extension ListViewController: UITableViewDataSource {
             return rawCell as! UITableViewCell
         }
         
-        customCell.fillCell(withObject: customObj)
+        customCell.fillCell(withPerson: personObj)
         
         return customCell
     }
@@ -65,7 +65,7 @@ extension ListViewController: UITableViewDataSource {
 
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        CustomController.sharedInstance.selectedUser = CustomController.sharedInstance.list[indexPath.row]
+        PersonController.sharedInstance.selectedUser = PersonController.sharedInstance.list[indexPath.row]
         self.performSegue(withIdentifier: self.segueId, sender: self)
     }
 }
