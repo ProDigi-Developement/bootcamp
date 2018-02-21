@@ -12,8 +12,8 @@
 		955E3A5C1EFC5A72009DC4A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955E3A5A1EFC5A72009DC4A8 /* Main.storyboard */; };
 		955E3A5E1EFC5A72009DC4A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 955E3A5D1EFC5A72009DC4A8 /* Assets.xcassets */; };
 		955E3A611EFC5A72009DC4A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955E3A5F1EFC5A72009DC4A8 /* LaunchScreen.storyboard */; };
-		955E3A6E1EFC6752009DC4A8 /* CustomObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E3A6D1EFC6752009DC4A8 /* CustomObject.swift */; };
-		955E3A701EFC69FF009DC4A8 /* CustomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E3A6F1EFC69FF009DC4A8 /* CustomController.swift */; };
+		955E3A6E1EFC6752009DC4A8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E3A6D1EFC6752009DC4A8 /* Person.swift */; };
+		955E3A701EFC69FF009DC4A8 /* PersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E3A6F1EFC69FF009DC4A8 /* PersonController.swift */; };
 		955E3A721EFC766F009DC4A8 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 955E3A711EFC766F009DC4A8 /* CustomTableViewCell.xib */; };
 		955E3A771EFC7705009DC4A8 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E3A761EFC7705009DC4A8 /* CustomTableViewCell.swift */; };
 		95E7F4F21F01A941006BB0EF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E7F4F11F01A941006BB0EF /* DetailsViewController.swift */; };
@@ -28,8 +28,8 @@
 		955E3A5D1EFC5A72009DC4A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		955E3A601EFC5A72009DC4A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		955E3A621EFC5A72009DC4A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		955E3A6D1EFC6752009DC4A8 /* CustomObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomObject.swift; sourceTree = "<group>"; };
-		955E3A6F1EFC69FF009DC4A8 /* CustomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomController.swift; sourceTree = "<group>"; };
+		955E3A6D1EFC6752009DC4A8 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		955E3A6F1EFC69FF009DC4A8 /* PersonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonController.swift; sourceTree = "<group>"; };
 		955E3A711EFC766F009DC4A8 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		955E3A761EFC7705009DC4A8 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		95E7F4F11F01A941006BB0EF /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		955E3A681EFC5A7D009DC4A8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				955E3A6D1EFC6752009DC4A8 /* CustomObject.swift */,
+				955E3A6D1EFC6752009DC4A8 /* Person.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -89,7 +89,7 @@
 		955E3A691EFC5A81009DC4A8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				955E3A6F1EFC69FF009DC4A8 /* CustomController.swift */,
+				955E3A6F1EFC69FF009DC4A8 /* PersonController.swift */,
 				95E7F4F71F01B535006BB0EF /* SwifyJSON.swift */,
 			);
 			name = Controller;
@@ -157,12 +157,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = ProDigi;
 				TargetAttributes = {
 					955E3A521EFC5A72009DC4A8 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = C8F6JTSD25;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -204,11 +205,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				955E3A701EFC69FF009DC4A8 /* CustomController.swift in Sources */,
+				955E3A701EFC69FF009DC4A8 /* PersonController.swift in Sources */,
 				955E3A771EFC7705009DC4A8 /* CustomTableViewCell.swift in Sources */,
 				95E7F4F81F01B535006BB0EF /* SwifyJSON.swift in Sources */,
 				955E3A591EFC5A72009DC4A8 /* ListViewController.swift in Sources */,
-				955E3A6E1EFC6752009DC4A8 /* CustomObject.swift in Sources */,
+				955E3A6E1EFC6752009DC4A8 /* Person.swift in Sources */,
 				955E3A571EFC5A72009DC4A8 /* AppDelegate.swift in Sources */,
 				95E7F4F21F01A941006BB0EF /* DetailsViewController.swift in Sources */,
 			);
@@ -246,7 +247,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -254,7 +257,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -297,7 +304,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -305,7 +314,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -340,7 +353,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.prodigi-development.BaseProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -353,7 +367,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.prodigi-development.BaseProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
