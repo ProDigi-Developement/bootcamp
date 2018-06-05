@@ -1,11 +1,26 @@
 <!doctype html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Hello React</title>
+    <meta charset="utf-8">
+
+    <title>Look the console</title>
+
+    <script type="text/javascript" src="basic.js"></script>
+    <script>
+        function onload() {
+            var lessie= new Dog("John");
+            console.log("----Lassie Dog Details----\n"+lessie.toStr());
+
+            var scar= new Lion("Smith");
+            console.log("----Scar Lion Details----\n"+scar.toStr());
+
+            var dolly= new Sheep("Mike");
+            console.log("----Dolly Sheep Details----\n"+dolly.toStr());
+        }
+    </script>
 </head>
-<body>
-  <div id="react-root"></div>
-  <script src="/build/bundle.js"></script>
+<body onload="onload()">
+    <p>Nothing Here Check Your Console.</p>
 </body>
 </html>
