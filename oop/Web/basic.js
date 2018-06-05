@@ -1,5 +1,4 @@
 class Animal {
-
     get baseFood() {
         throw new TypeError('Abstract class cannot be instantiated directly.');
     }
