@@ -1,0 +1,67 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	color: green;
+	background: rgba(0, 255, 0, 0.2);
+}
+
+.grid {
+	padding: 1em 1em 0 1em;
+	margin: 0;
+	column-count: 4;
+	column-gap: 2em;
+	column-rule: 2px outset rgba(0, 0, 128, 0.3);
+}
+
+.module {
+	display: inline-block;
+	margin: 10px 0 1em 0;
+	list-style: none;
+	background: rgba(0, 255, 0, 0.3);
+	padding: 20px;
+	box-shadow: 0 8px 6px -6px rgba(0, 0, 128, 0.3), 0px -8px 6px -6px rgba(0, 0, 128, 0.2);
+}
+
+a {
+	text-decoration: none;
+	color: rgba(0, 0, 128, 0.5);
+}
+
+a:hover {
+	color: rgba(0, 0, 128, 0.3);
+}
+
+p {
+	margin: 0;
+}
+
+h2 {
+	margin: 0 0 0.5em 0;
+	background: radial-gradient(rgba(0, 0, 128, 0.2), rgba(0, 0, 128, 0.5));
+	line-height: 40px;
+	text-align: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	color: rgba(255,255,255,0.9);
+}
+
+@media screen and (max-width: 960px) {
+	.grid {
+		column-count: 3;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.grid {
+		column-count: 2;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.grid {
+		column-count: 1;
+	}
+}
